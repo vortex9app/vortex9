@@ -6,17 +6,24 @@ const path = require('path');
 const { pathToFileURL } = require('url');
 const { app, BrowserWindow, ipcMain, clipboard, net, protocol, safeStorage, session, shell, systemPreferences } = require('electron');
 
-function writeStartupError(kind, err) {
-  const detail = err && err.stack ? err.stack : String(err);
-  const line = `${new Date().toISOString()} ${kind}\n${detail}\n`;
+function crashLogTargets() {
+  const name = 'vortex9_crash.log';
   const targets = [];
+  if (process.env.APPDATA) targets.push(path.join(process.env.APPDATA, 'vortex9', name));
   try {
-    if (typeof app.getPath === 'function') targets.push(path.join(app.getPath('userData'), 'error.log'));
+    if (typeof app.getPath === 'function') targets.push(path.join(app.getPath('userData'), name));
   } catch (pathErr) {
     // userData is not available yet.
   }
-  targets.push(path.join(path.dirname(process.execPath), 'error.log'));
-  for (const file of targets) {
+  if (process.env.LOCALAPPDATA) targets.push(path.join(process.env.LOCALAPPDATA, 'vortex9', name));
+  targets.push(path.join(path.dirname(process.execPath), name));
+  return [...new Set(targets)];
+}
+
+function writeStartupError(kind, err) {
+  const detail = err && err.stack ? err.stack : String(err);
+  const line = `${new Date().toISOString()} ${kind}\n${detail}\n`;
+  for (const file of crashLogTargets()) {
     try {
       fs.mkdirSync(path.dirname(file), { recursive: true });
       fs.appendFileSync(file, line);
