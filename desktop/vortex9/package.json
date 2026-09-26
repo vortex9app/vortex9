@@ -10,7 +10,7 @@
     "app:dev": "electron .",
     "check": "node shield/self-check.js",
     "build:win": "electron-builder --win nsis zip --x64",
-    "build:mac": "electron-builder --mac dmg zip --universal",
+    "build:mac": "electron-builder --mac dmg zip --x64 --arm64",
     "app:build": "electron-builder --win nsis zip --x64",
     "build": "electron-builder --win nsis zip --mac dmg zip"
   },
@@ -47,10 +47,10 @@
     "mac": {
       "category": "public.app-category.utilities",
       "target": [
-        "dmg",
-        "zip"
+        { "target": "dmg", "arch": ["x64", "arm64"] },
+        { "target": "zip", "arch": ["x64", "arm64"] }
       ],
-      "artifactName": "Vortex9-macOS-Installer.${ext}"
+      "artifactName": "Vortex9-macOS-Installer-${arch}.${ext}"
     }
   },
   "devDependencies": {
