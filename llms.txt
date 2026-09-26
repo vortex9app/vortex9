@@ -2,6 +2,8 @@
 
 Site: https://mystic9.net/
 Author: The Barefoot Mystic
+Operator: Mampi Technologies Ltd
+Copyright: © 2026 Mampi Technologies Ltd. All rights reserved.
 Feed: https://mystic9.net/feed.xml
 Library: https://mystic9.net/#library
 Academy: https://mystic9.net/academy

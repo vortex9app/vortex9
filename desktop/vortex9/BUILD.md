@@ -1,5 +1,7 @@
 # Vortex9 desktop build
 
+© 2026 Mampi Technologies Ltd. All rights reserved.
+
 The app lives in `desktop/vortex9`. Installers are written to `desktop/vortex9/dist`, which is excluded from the mystic9.net web deploy. Publish those files to the GitHub release used by the `/vortex9` download buttons. Do not put `.exe` or `.app` files in the website folder.
 
 ## Windows `.exe`

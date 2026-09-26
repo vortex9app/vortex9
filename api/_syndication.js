@@ -3,6 +3,8 @@ const path = require('path');
 
 const SITE_URL = 'https://mystic9.net';
 const SITE_NAME = 'mystic9.net';
+const OPERATOR = 'Mampi Technologies Ltd';
+const COPYRIGHT = '© 2026 Mampi Technologies Ltd. All rights reserved.';
 const SITE_TITLE = 'mystic9.net | The Digital Sanctuary & Frequency Portal';
 const SITE_DESCRIPTION = "Welcome to mystic9.net. The Barefoot Mystic's digital sanctuary for frequency activation, sacred geometry, numerology, meditation, water structuring, and multidimensional community ascension.";
 const SITE_IMAGE = `${SITE_URL}/character.jpg`;
@@ -220,6 +222,7 @@ function buildRss() {
     <link>${escapeXml(SITE_URL)}/</link>
     <description>${escapeXml(SITE_DESCRIPTION)}</description>
     <language>${LANGUAGE}</language>
+    <copyright>${escapeXml(COPYRIGHT)}</copyright>
     <lastBuildDate>${lastBuild}</lastBuildDate>
     <sy:updatePeriod>hourly</sy:updatePeriod>
     <sy:updateFrequency>1</sy:updateFrequency>
@@ -257,6 +260,7 @@ function buildAtom() {
   <link rel="alternate" href="${escapeXml(SITE_URL)}/" type="text/html"/>
   <link rel="hub" href="${escapeXml(HUB_URL)}"/>
   <subtitle>${escapeXml(SITE_DESCRIPTION)}</subtitle>
+  <rights>${escapeXml(COPYRIGHT)}</rights>
   <icon>${escapeXml(SITE_IMAGE)}</icon>
   <logo>${escapeXml(SITE_IMAGE)}</logo>
 ${entryXml}
@@ -367,7 +371,7 @@ function jsonLdForPayload(payload) {
       url: articleShareUrl(p.articleId),
       image: SITE_IMAGE,
       author: { '@type': 'Person', name: 'The Barefoot Mystic', url: `${SITE_URL}/#about` },
-      publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+      publisher: { '@type': 'Organization', name: OPERATOR, legalName: OPERATOR, url: SITE_URL },
       isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
       mainEntityOfPage: p.canonical || p.url
     };
@@ -390,6 +394,7 @@ function buildPreviewHtml(payload) {
   <meta charset="UTF-8">
   <title>${escapeXml(p.title)}</title>
   <link rel="canonical" href="${escapeXml(p.canonical || p.url)}">
+  <meta name="copyright" content="${escapeXml(COPYRIGHT)}">
   ${ogTags(p)}
   <script type="application/ld+json">${JSON.stringify(jsonLdForPayload(p))}</script>
   <meta http-equiv="refresh" content="0;url=${escapeXml(p.canonical || p.url)}">
