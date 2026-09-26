@@ -5,6 +5,36 @@ const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
 const { app, BrowserWindow, ipcMain, clipboard, net, protocol, safeStorage, session, shell, systemPreferences } = require('electron');
+
+function writeStartupError(kind, err) {
+  const detail = err && err.stack ? err.stack : String(err);
+  const line = `${new Date().toISOString()} ${kind}\n${detail}\n`;
+  const targets = [];
+  try {
+    if (typeof app.getPath === 'function') targets.push(path.join(app.getPath('userData'), 'error.log'));
+  } catch (pathErr) {
+    // userData is not available yet.
+  }
+  targets.push(path.join(path.dirname(process.execPath), 'error.log'));
+  for (const file of targets) {
+    try {
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.appendFileSync(file, line);
+      return;
+    } catch (writeErr) {
+      // Try the next location.
+    }
+  }
+}
+
+process.on('uncaughtException', (err) => {
+  writeStartupError('uncaughtException', err);
+  process.exit(1);
+});
+process.on('unhandledRejection', (reason) => {
+  writeStartupError('unhandledRejection', reason);
+});
+
 const { emptyHousehold, inspectHost, normalizeHousehold, scanText } = require('./shield/guardian');
 const { requestJson } = require('./shield/https');
 const { acceptLicense } = require('./shield/license-check');
@@ -731,6 +761,9 @@ app.whenReady().then(() => {
   else if (state.tier === 'paid' && state.threatFeed) {
     syncThreatFeed().finally(scheduleFeed);
   }
+}).catch((err) => {
+  writeStartupError('startup', err);
+  process.exit(1);
 });
 
 let quitting = false;
