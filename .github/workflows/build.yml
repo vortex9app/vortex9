@@ -2,12 +2,21 @@ name: Build Vortex9 installers
 
 on:
   push:
+    branches:
+      - main
     tags:
       - "*"
+  release:
+    types:
+      - published
   workflow_dispatch:
 
 permissions:
   contents: write
+
+concurrency:
+  group: vortex9-installers-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -43,6 +52,7 @@ jobs:
         run: npm run ${{ matrix.script }}
         env:
           CSC_IDENTITY_AUTO_DISCOVERY: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Windows installers
         if: runner.os == 'Windows'
@@ -67,9 +77,12 @@ jobs:
   release:
     name: Publish GitHub Release
     needs: build
-    if: startsWith(github.ref, 'refs/tags/')
+    if: always() && needs.build.result != 'cancelled'
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
       - name: Download installers
         uses: actions/download-artifact@v4
         with:
@@ -79,13 +92,23 @@ jobs:
       - name: Attach installers to the release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ github.ref_name }}
+          EVENT_NAME: ${{ github.event_name }}
+          REF_TYPE: ${{ github.ref_type }}
+          REF_NAME: ${{ github.ref_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
         run: |
           shopt -s nullglob
           files=(release-assets/*.exe release-assets/*.zip release-assets/*.dmg)
           if [ ${#files[@]} -eq 0 ]; then
             echo "No installer files were downloaded."
             exit 1
+          fi
+          if [ "$EVENT_NAME" = "release" ] && [ -n "$RELEASE_TAG" ]; then
+            TAG="$RELEASE_TAG"
+          elif [ "$REF_TYPE" = "tag" ]; then
+            TAG="$REF_NAME"
+          else
+            TAG="v$(node -p "require('./desktop/vortex9/package.json').version")"
           fi
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" "${files[@]}" --clobber
