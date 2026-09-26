@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+  <title>Vortex9</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app is-idle">
+    <header class="titlebar">
+      <div class="brand-lockup">
+        <div class="logo" aria-hidden="true"><span>9</span></div>
+        <span class="brand">Vortex9</span>
+      </div>
+      <div class="window-actions">
+        <button type="button" id="min-btn" aria-label="Minimize">–</button>
+        <button type="button" id="close-btn" aria-label="Close">×</button>
+      </div>
+    </header>
+
+    <section class="statusbar" aria-label="Shield status">
+      <div class="metrics">
+        <article>
+          <strong id="scrapers">0</strong>
+          <span>Matrix scrapers blocked</span>
+        </article>
+        <article>
+          <strong id="telemetry">0</strong>
+          <span>Telemetry pings neutralized</span>
+        </article>
+        <article>
+          <strong id="integrity">0%</strong>
+          <span>Shield integrity</span>
+        </article>
+      </div>
+      <div class="status-row">
+        <span class="badge" id="tier-badge">[FREE TIER]</span>
+        <button type="button" id="upgrade" class="ghost">Upgrade via Stripe</button>
+        <p class="status" id="status">Shield idle.</p>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <section class="shield-row">
+        <div>
+          <h2>Digital defence</h2>
+          <p>Master switch for the base shield.</p>
+        </div>
+        <button type="button" id="shield-toggle" class="switch" aria-pressed="false">
+          <span class="switch-knob" aria-hidden="true"></span>
+          <span id="shield-caption">Off</span>
+        </button>
+      </section>
+
+      <section class="guardian" id="guardian">
+        <div class="guardian-head">
+          <h2>Guardian Protocol</h2>
+          <button type="button" id="guardian-toggle" class="switch" aria-pressed="false" disabled>
+            <span class="switch-knob" aria-hidden="true"></span>
+            <span id="guardian-caption">Off</span>
+          </button>
+        </div>
+        <p class="lock-note" id="guardian-lock">Locked on the free tier. Upgrade via Stripe to open Guardian Protocol.</p>
+        <button type="button" id="guardian-upgrade" class="ghost">Upgrade via Stripe</button>
+        <div id="guardian-tools" hidden>
+          <p class="lock-note">Sovereign baseline is built into this app. Adult-content indicators, tracking hosts, and predatory-host blocks cannot be edited or removed.</p>
+          <div class="guardian-head">
+            <h3>Threat intelligence feed</h3>
+            <button type="button" id="feed-toggle" class="switch" aria-pressed="false">
+              <span class="switch-knob" aria-hidden="true"></span>
+              <span id="feed-caption">Off</span>
+            </button>
+          </div>
+          <p class="lock-note">Opt in to download a host list. Nothing you scan is uploaded.</p>
+          <button type="button" id="household-open" class="ghost">Household rules</button>
+          <div id="household-panel" hidden>
+            <p class="lock-note">Add a keyword or a blocked site. Rules are encrypted on this device.</p>
+            <div class="household-form">
+              <input id="household-input" type="text" maxlength="200" autocomplete="off" placeholder="Keyword or blocked URL" aria-label="Household rule">
+              <select id="household-kind" aria-label="Rule type">
+                <option value="keyword">Keyword</option>
+                <option value="url">Blocked URL</option>
+              </select>
+              <button type="button" id="household-add" class="ghost">Add</button>
+            </div>
+            <p id="household-error"></p>
+            <ul id="household-list"></ul>
+            <button type="button" id="household-lock" class="ghost">Lock household rules</button>
+          </div>
+          <textarea id="sample" rows="2" placeholder="Paste inbound or outbound text to scan. Matches are counted. The text is not stored."></textarea>
+          <button type="button" id="scan" class="ghost">Scan text</button>
+          <p id="guardian-result">Guardian Protocol is open. Flagged text is counted and not stored.</p>
+        </div>
+      </section>
+
+      <section class="terminal" aria-label="Telemetry feed">
+        <div class="terminal-head">
+          <h2>Telemetry feed</h2>
+          <span>local monitor</span>
+        </div>
+        <div id="feed" class="feed" role="log"></div>
+      </section>
+    </section>
+
+    <section class="license">
+      <form id="license-form">
+        <input id="email" type="email" autocomplete="email" placeholder="Account email" aria-label="Account email">
+        <button type="submit" class="gold">Activate</button>
+        <input id="license-key" type="text" autocomplete="off" placeholder="Receipt reference (optional)" aria-label="Receipt reference">
+      </form>
+      <p class="lock-note">Paid features stay locked until mystic9.net verifies this email or receipt.</p>
+      <p class="tier" id="tier">Free tier. Core telemetry blocks only.</p>
+    </section>
+
+    <div class="modal" id="confirm-modal" hidden>
+      <form class="modal-card" id="confirm-form">
+        <h2 id="confirm-title">Confirm Guardian change</h2>
+        <p id="confirm-copy">Enter the operator passphrase before Guardian Protocol can be switched.</p>
+        <input id="confirm-pass" type="password" autocomplete="current-password" placeholder="Operator passphrase" aria-label="Operator passphrase">
+        <p id="confirm-error" role="alert"></p>
+        <div class="modal-actions">
+          <button type="submit" class="gold" id="confirm-submit">Confirm</button>
+          <button type="button" class="ghost" id="confirm-bio">Use device sign-in</button>
+          <button type="button" class="ghost" id="confirm-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "mystic9-net",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-syndication.js && node scripts/assemble-web.js",
+    "syndication": "node scripts/generate-syndication.js",
+    "dev": "npm run build && node scripts/dev-server.js",
+    "desktop": "npm start --prefix desktop/vortex9",
+    "app:dev": "npm start --prefix desktop/vortex9",
+    "app:build": "npm run build:win --prefix desktop/vortex9",
+    "app:build:mac": "npm run build:mac --prefix desktop/vortex9"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.116.0"
+  }
+}

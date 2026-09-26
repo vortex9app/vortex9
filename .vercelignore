@@ -1,0 +1,14 @@
+# Web deploy is the sanctuary site only. Desktop builds and dependencies stay off the host.
+node_modules
+desktop
+downloads
+backups
+.tiktok-agent-profile
+__pycache__
+*.exe
+*.dmg
+*.app
+*.blockmap
+*.pak
+*.docx
+*.pyc

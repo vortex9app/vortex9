@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+Disallow: /api/recover
+Disallow: /api/config
+Disallow: /api/user-feed
+Disallow: /feed/
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://mystic9.net/sitemap.xml

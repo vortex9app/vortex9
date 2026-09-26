@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/png" href="/public/assets/vortex9-icon.png">
+  <title>Vortex9 | Sovereign Defence Node</title>
+  <meta name="description" content="Vortex9 is the Sovereign Defence Node. It protects personal and family digital fields from data-scraping, bots, and matrix interference, with incoming and outgoing keyword and content filtering. Free and paid tiers for Windows and macOS.">
+  <meta name="author" content="The Barefoot Mystic">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mystic9.net/vortex9">
+  <meta property="og:site_name" content="mystic9.net">
+  <meta property="og:title" content="Vortex9 | Sovereign Defence Node">
+  <meta property="og:description" content="Vortex9 is the Sovereign Defence Node for personal and family digital fields. Incoming and outgoing keyword and content filtering against data-scraping, bots, and matrix interference.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mystic9.net/vortex9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: #000; }
+    body {
+      min-height: 100vh;
+      background: #000;
+      color: #f4f1ea;
+      font-family: Inter, sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.16;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='grain' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+      background-size: 220px 220px;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    @keyframes threatRing {
+      0%, 100% { background-color: #2ecc40; }
+      33% { background-color: #e6c865; }
+      66% { background-color: #ff4136; }
+    }
+    @keyframes threatBorder {
+      0%, 100% { border-color: #2ecc40; box-shadow: 0 0 10px rgba(46, 204, 64, 0.28); }
+      33% { border-color: #e6c865; box-shadow: 0 0 14px rgba(230, 200, 101, 0.34); }
+      66% { border-color: #ff4136; box-shadow: 0 0 16px rgba(255, 65, 54, 0.4); }
+    }
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: #f6e7a8;
+      background: #0a0a0a;
+      border: 2px solid #2ecc40;
+      animation: threatBorder 14s ease-in-out infinite;
+    }
+    .top-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px 18px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .top-links a,
+    .text-link {
+      text-decoration: none;
+      color: #d9d3c5;
+      background: none;
+      border: 0;
+      padding: 0;
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      cursor: pointer;
+    }
+    .top-links a:hover,
+    .top-links a:focus-visible,
+    .text-link:hover,
+    .text-link:focus-visible { color: #e6c865; outline: none; }
+    .pin {
+      position: relative;
+      background: #070707;
+      border-radius: 22px;
+    }
+    .pin::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 3px;
+      background-color: #2ecc40;
+      animation: threatRing 14s ease-in-out infinite;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(240px, 380px) 1fr;
+      gap: 36px;
+      align-items: center;
+      padding: 36px 32px;
+    }
+    .app-shell {
+      width: min(340px, 100%);
+      margin: 0 auto;
+      aspect-ratio: 1;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(255, 65, 54, 0.16), transparent 42%),
+        radial-gradient(circle at 50% 58%, rgba(230, 200, 101, 0.1), transparent 46%),
+        #101010;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.72), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+    .app-shell::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      pointer-events: none;
+    }
+    .vortex {
+      position: absolute;
+      width: 78%;
+      height: 78%;
+      opacity: 0.85;
+    }
+    .glyph {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(7.2rem, 16vw, 9.4rem);
+      font-weight: 700;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: #fff8e7;
+      text-shadow:
+        0 0 10px rgba(255, 65, 54, 0.95),
+        0 0 26px rgba(230, 200, 101, 0.9),
+        0 0 54px rgba(255, 65, 54, 0.45);
+    }
+    .app-caption {
+      position: relative;
+      z-index: 1;
+      margin-top: 8px;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #e6c865;
+    }
+    .kicker {
+      color: #ff6a62;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .lead {
+      color: #d7d1c4;
+      font-size: 1.05rem;
+      max-width: 38rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      font-family: inherit;
+      background: #0a0a0a;
+      color: #f6e7a8;
+      border: 2px solid #2ecc40;
+      animation: threatBorder 14s ease-in-out infinite;
+    }
+    .btn { cursor: pointer; }
+    .btn:hover,
+    .btn:focus-visible {
+      color: #fff;
+      outline: none;
+      box-shadow: 0 0 18px rgba(230, 200, 101, 0.35);
+    }
+    .btn.solid {
+      background: #e6c865;
+      color: #111;
+    }
+    .btn.solid:hover,
+    .btn.solid:focus-visible { background: #f3e7b4; }
+    section { margin-top: 22px; }
+    .card { padding: 28px 28px 26px; }
+    .protocol h3 {
+      margin: 18px 0 6px;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+      overflow-wrap: break-word;
+    }
+    h2 {
+      font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .copy strong { color: #f6e7a8; }
+    .copy { color: #d7d1c4; max-width: 68ch; }
+    .tier-grid, .download-grid, .badge-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .download-grid, .badge-grid { grid-template-columns: 1fr 1fr; }
+    .tier-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .tier { min-width: 0; }
+    .badge {
+      display: block;
+      width: 100%;
+      text-align: left;
+      font: inherit;
+      color: inherit;
+      cursor: pointer;
+      background: #050505;
+      border: 0;
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+    }
+    .badge h3 {
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+    .seal-title {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      overflow-wrap: break-word;
+    }
+    .seal-icon {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 22px;
+      margin-top: 1px;
+      color: #e6c865;
+    }
+    .pay-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .trust-seal {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 100%;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(230, 200, 101, 0.55);
+      background: #0a0a0a;
+      color: #f6e7a8;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.3;
+      overflow-wrap: break-word;
+    }
+    .badge p { color: #d7d1c4; font-size: 0.92rem; }
+    .badge-cue {
+      display: block;
+      margin-top: 12px;
+      color: #e6c865;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .badge:hover .badge-cue,
+    .badge:focus-visible .badge-cue { color: #f3e7b4; }
+    .badge:focus-visible { outline: 2px solid #e6c865; outline-offset: 3px; }
+    .policy {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      transform: translate(-50%, -50%);
+      width: min(640px, calc(100vw - 32px));
+      max-width: calc(100vw - 32px);
+      max-height: min(86vh, 720px);
+      height: auto;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      background: transparent;
+      color: #f4f1ea;
+      font-family: Inter, sans-serif;
+    }
+    .policy::backdrop { background: rgba(0, 0, 0, 0.78); }
+    .policy-card {
+      display: flex;
+      flex-direction: column;
+      max-height: min(86vh, 720px);
+      padding: 8px;
+      overflow: hidden;
+      background: #070707;
+      box-sizing: border-box;
+    }
+    .policy-scroll {
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: calc(min(86vh, 720px) - 16px);
+      padding: 16px 16px 14px;
+      overflow-wrap: break-word;
+    }
+    .policy-scroll h3 {
+      font-size: 1rem;
+      margin: 16px 0 6px;
+    }
+    .policy-scroll p { color: #d7d1c4; margin-top: 8px; }
+    .policy-scroll .btn { margin: 4px 0 14px; }
+    .tier, .download-card {
+      background: #050505;
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+    }
+    .tier h3, .download-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+      overflow-wrap: break-word;
+    }
+    .price-unit {
+      font-size: 0.8rem;
+      color: #a8a29e;
+      font-weight: 600;
+    }
+    .annual-price {
+      margin: 2px 0 0;
+      color: #e6c865;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.35;
+      overflow-wrap: break-word;
+    }
+    .tier-label {
+      color: #e6c865;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    ul { margin: 12px 0 0 0; list-style: none; }
+    li {
+      position: relative;
+      padding-left: 16px;
+      margin: 8px 0;
+      color: #e7e1d4;
+      font-size: 0.95rem;
+    }
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff4136, #e6c865);
+    }
+    .download-card p { color: #c9c2b3; font-size: 0.92rem; margin-bottom: 14px; }
+    .download-card .btn, .tier-actions .btn {
+      width: 100%;
+      box-sizing: border-box;
+      white-space: normal;
+      text-align: center;
+      overflow-wrap: break-word;
+      line-height: 1.3;
+    }
+    .tier-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .tier .copy { margin-top: 10px; font-size: 0.92rem; }
+    footer {
+      margin-top: 28px;
+      color: #8d877b;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    footer p {
+      margin: 0 0 8px;
+      max-width: 78ch;
+      line-height: 1.45;
+      overflow-wrap: break-word;
+    }
+    footer p:last-child { margin-bottom: 0; }
+    @media (max-width: 1100px) {
+      .tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 800px) {
+      .hero, .tier-grid, .download-grid, .badge-grid { grid-template-columns: 1fr; }
+      .top-links { justify-content: flex-start; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .hero, .card { padding: 22px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .glyph { text-shadow: 0 0 12px rgba(230, 200, 101, 0.8); }
+      .pin::before, .brand-mark, .btn { animation: none; }
+      .pin::before { background-color: #e6c865; }
+      .brand-mark, .btn { border-color: #e6c865; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">9</span>
+        Vortex9
+      </a>
+      <nav class="top-links" aria-label="Vortex9">
+        <a href="#harvest">Harvest</a>
+        <a href="#guardian">Guardian</a>
+        <a href="#mission">Mission</a>
+        <a href="#tiers">Tiers</a>
+        <a href="#download">Download</a>
+        <a href="#defence">Defence</a>
+        <a href="#protocol">Protocol</a>
+        <button type="button" class="text-link" data-policy="security">Security Policy</button>
+        <button type="button" class="text-link" data-policy="guardian">Guardian Protocol Terms</button>
+        <button type="button" class="text-link" data-policy="privacy">Privacy &amp; Sovereignty</button>
+        <a href="/">mystic9.net</a>
+      </nav>
+    </header>
+
+    <section class="pin hero" id="top">
+      <div class="pin app-shell" aria-hidden="true">
+        <svg class="vortex" viewBox="0 0 200 200">
+          <circle cx="100" cy="100" r="78" fill="none" stroke="#ff4136" stroke-width="1.2" opacity="0.85"/>
+          <circle cx="100" cy="100" r="64" fill="none" stroke="#e6c865" stroke-width="1"/>
+          <circle cx="100" cy="100" r="50" fill="none" stroke="#ff4136" stroke-width="0.8" opacity="0.7"/>
+          <path d="M100 28c28 10 46 36 46 64" fill="none" stroke="#e6c865" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M38 118c12 28 40 46 70 42" fill="none" stroke="#ff4136" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <div class="glyph">9</div>
+        <div class="app-caption">Field sealed</div>
+      </div>
+      <div>
+        <p class="kicker">Sovereign Defence Node</p>
+        <h1>Vortex9</h1>
+        <p class="lead">A matte-black field instrument for the personal and family digital field. Vortex9 stands between the household and the scrape, the bot, and the interference.</p>
+        <div class="hero-actions">
+          <a class="btn solid" href="#download">Download Vortex9</a>
+          <a class="btn" href="#tiers">Compare tiers</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="defence">
+      <div class="pin card">
+        <p class="kicker">Sovereign Defence Node</p>
+        <h2>Protection that stays with the household.</h2>
+        <p class="copy">Select a badge to open its declaration. These controls belong to the Vortex9 app and are separate from the mystic9.net sanctuary terms.</p>
+        <div class="badge-grid">
+          <button type="button" class="pin badge" data-policy="aes" title="Records on this device are sealed with AES-256-GCM. The key stays on the device.">
+            <h3 class="seal-title"><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>AES-256 Local Encryption</h3>
+            <p>License records, Guardian settings, household rules, and the saved threat-feed list are sealed on this device with AES-256-GCM. The key is wrapped by Windows safe storage or the macOS keychain.</p>
+            <span class="badge-cue">Open declaration</span>
+          </button>
+          <button type="button" class="pin badge" data-policy="asar" title="The packaged archive is checked before it runs. A modified copy is refused.">
+            <h3>ASAR Binary Integrity</h3>
+            <p>The installer is one archive. That build checks the archive before it runs, so a modified copy is refused. This check is on the installer, not on a development launch.</p>
+            <span class="badge-cue">Open declaration</span>
+          </button>
+          <button type="button" class="pin badge" data-policy="local" title="The shield log and scans stay on this device. Scanned text is not uploaded.">
+            <h3 class="seal-title"><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.8 7.4-7 9-4.2-1.6-7-4.8-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Local Telemetry</h3>
+            <p>The shield log, keyword checks, and address checks stay on this device. A match is counted by category. The text and the address are not stored, and they are not uploaded.</p>
+            <span class="badge-cue">Open declaration</span>
+          </button>
+          <button type="button" class="pin badge" data-policy="tls" title="License and threat-feed connections use HTTPS with TLS 1.2 or TLS 1.3.">
+            <h3 class="seal-title"><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>TLS Transport Security</h3>
+            <p>Subscription checks and the optional threat-feed download use HTTPS with TLS 1.2 or TLS 1.3 and a valid certificate. Plain HTTP is refused.</p>
+            <span class="badge-cue">Open declaration</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="protocol">
+      <div class="pin card protocol">
+        <p class="kicker">Security Protocol &amp; Architecture</p>
+        <h2>The defence runs on the machine.</h2>
+        <p class="copy">Vortex9 is a local instrument. These controls belong to the desktop app and are separate from the mystic9.net sanctuary terms.</p>
+        <h3>Packaged archive</h3>
+        <p class="copy">The installer is one ASAR archive. That build checks the archive before it runs, and a modified copy is refused. The check applies to the installer, not to a development launch.</p>
+        <h3>AES-256 local encryption</h3>
+        <p class="copy">License records, Guardian settings, household rules, and the saved threat-feed list are sealed on this device with AES-256-GCM. The key is wrapped by Windows safe storage or the macOS keychain.</p>
+        <h3>Hardware-bound license</h3>
+        <p class="copy">A confirmed subscription is sealed to this machine. Copying the program onto another computer does not carry a working paid unlock.</p>
+        <h3>Local telemetry</h3>
+        <p class="copy">The shield log and scan buffers stay in memory on this device. Scanned text is not written to the drive. When the session ends, those buffers are wiped.</p>
+        <h3>Air-gapped defence</h3>
+        <p class="copy">Host blocks and the household filter run locally. They continue when the network is cut. A paid term that cannot be confirmed stays closed once the sealed record expires.</p>
+        <h3>Debugger lockdown</h3>
+        <p class="copy">If a debugger is attached, Vortex9 closes paid features and disengages the shield.</p>
+      </div>
+    </section>
+
+    <section id="harvest">
+      <div class="pin card">
+        <p class="kicker">The AI Extraction Threat</p>
+        <h2>The Age of Automated Harvesting: What Are They Really Taking?</h2>
+        <p class="copy">Traditional antivirus and ad-blockers were built for a different era. They only look for old-school malware and pop-ups, leaving you completely blind to modern AI data-scrapers and corporate LLM crawlers. Every time you browse, chat, or type, automated background bots are vacuuming up your keystrokes, personal patterns, and digital footprint to feed machine-learning training models. Vortex9 acts as an active cognitive firewall, intercepting and neutralizing bot probes before your private data ever leaves your device.</p>
+      </div>
+    </section>
+
+    <section id="guardian">
+      <div class="pin card">
+        <p class="kicker">Child Protection</p>
+        <h2>The Guardian Protocol: Uncompromising Protection for Young Minds</h2>
+        <p class="copy">The modern internet is heavily weaponized with predatory algorithms, hidden grooming patterns, and toxic consensus noise targeted directly at children and teenagers. The Guardian Protocol provides deep, real-time packet inspection for <strong>both inbound and outbound keywords</strong>. It actively filters out predatory behavior, blocks toxic inbound streams before a child's eyes can register them, and stops sensitive personal details from being leaked outward into unsafe spaces, giving parents absolute peace of mind in a chaotic digital wilderness.</p>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="pin card">
+        <p class="kicker">The Mission</p>
+        <h2>Protect the digital field.</h2>
+        <p class="copy">Vortex9 is the Sovereign Defence Node. It guards personal and family digital fields from data-scraping, bots, and matrix interference. Filtering runs in both directions: incoming keyword and content filters meet material before it enters the field, and outgoing filters keep what leaves the household from feeding the scrape.</p>
+      </div>
+    </section>
+
+    <section id="tiers">
+      <div class="pin card">
+        <p class="kicker">The Tiers</p>
+        <h2>Free, £8.00 a month, £77.00 a year, or £699.00 for the business pack.</h2>
+        <p class="copy">The free download is the base shield. A confirmed monthly, annual, or business payment unlocks the sovereign package in the installed app for that account.</p>
+        <div class="tier-grid">
+          <article class="pin tier" id="download">
+            <p class="tier-label">Free Sovereign Tier</p>
+            <h3>£0</h3>
+            <p class="copy">Download the base shield for Windows or macOS. Advanced anti-scraping and the Guardian Protocol stay locked in this tier.</p>
+            <ul>
+              <li>Shield toggle and live integrity readout</li>
+              <li>Core telemetry blocks</li>
+              <li>Advanced anti-scraping and the Guardian Protocol stay locked</li>
+            </ul>
+            <div class="tier-actions">
+              <a class="btn solid" href="https://github.com/mystic9net/vortex9/releases/latest/download/Vortex9-Windows-Setup.zip" target="_blank" rel="noopener noreferrer">Download for Windows</a>
+              <a class="btn solid" href="https://github.com/mystic9net/vortex9/releases/latest/download/Vortex9-macOS-Installer.dmg" target="_blank" rel="noopener noreferrer">Download for macOS</a>
+            </div>
+          </article>
+          <article class="pin tier">
+            <p class="tier-label">Individual Monthly Tier</p>
+            <h3>£8.00<span class="price-unit">/month</span></h3>
+            <p class="copy">A confirmed month unlocks the sovereign package: advanced anti-scraping, outbound leak defence, and the Guardian Protocol.</p>
+            <ul>
+              <li>Sovereign package while the month is active</li>
+              <li>Advanced anti-scraping and outbound leak defence</li>
+              <li>Guardian Protocol keyword filter for the household</li>
+            </ul>
+            <div class="tier-actions">
+              <a class="btn solid" href="https://buy.stripe.com/8x2fZg95u5KadJdegY8AE03" target="_blank" rel="noopener noreferrer">Subscribe · £8.00/mo</a>
+            </div>
+          </article>
+          <article class="pin tier">
+            <p class="tier-label">Individual Annual Tier</p>
+            <h3>£77.00<span class="price-unit">/year</span></h3>
+            <p class="annual-price">Save 20% compared to monthly</p>
+            <p class="copy">A confirmed year unlocks the same sovereign package: advanced anti-scraping, outbound leak defence, and the Guardian Protocol.</p>
+            <ul>
+              <li>Sovereign package while the year is active</li>
+              <li>Advanced anti-scraping and outbound leak defence</li>
+              <li>Guardian Protocol keyword filter for the household</li>
+            </ul>
+            <div class="tier-actions">
+              <a class="btn solid" href="https://buy.stripe.com/3cIeVcgxW5Ka20v2yg8AE04" target="_blank" rel="noopener noreferrer">Get Individual Annual · £77</a>
+            </div>
+          </article>
+          <article class="pin tier">
+            <p class="tier-label">Business pack</p>
+            <h3>Sovereign Business Citadel Pack</h3>
+            <p class="annual-price">£699.00<span class="price-unit">/year</span></p>
+            <p class="copy">Ten enterprise licences for one organisation. A confirmed payment unlocks the sovereign package on the purchasing account for the year.</p>
+            <ul>
+              <li>10 multi-seat enterprise licences</li>
+              <li>Advanced anti-scraping and outbound leak defence</li>
+              <li>Guardian Protocol for each seat</li>
+            </ul>
+            <div class="tier-actions">
+              <a class="btn solid" href="https://buy.stripe.com/5kQ14mdlKb4ufRlc8Q8AE05" target="_blank" rel="noopener noreferrer">Claim Business Citadel · £699</a>
+            </div>
+          </article>
+        </div>
+        <div class="pay-trust" aria-label="Checkout trust">
+          <span class="trust-seal"><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Secured by Stripe</span>
+          <span class="trust-seal"><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.8 7.4-7 9-4.2-1.6-7-4.8-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Encrypted checkout</span>
+        </div>
+        <p class="copy" id="stripe-status">Secure payment opens in Stripe Checkout.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Vortex9 is a mystic9.net instrument. The sanctuary remains at mystic9.net. Vortex9 security, Guardian, and privacy terms are on this page and are separate from the sanctuary terms.</p>
+      <p>© 2026 mystic9.net. Vortex9 is proprietary software. All rights reserved. Unauthorised reproduction, distribution, or reverse engineering is prohibited.</p>
+    </footer>
+  </div>
+
+  <dialog class="policy" id="policy-security" aria-labelledby="security-title">
+    <div class="pin policy-card">
+      <div class="policy-scroll">
+      <p class="kicker">Vortex9</p>
+      <h2 id="security-title">Security Policy</h2>
+      <button type="button" class="btn" data-close-policy>Close</button>
+      <p>This policy covers the Vortex9 desktop app only. It is separate from the mystic9.net sanctuary terms.</p>
+      <h3>Encryption at rest</h3>
+      <p>Local records use AES-256-GCM. That includes the subscription cache, Guardian settings, household keywords and blocked sites, and the saved threat-feed host list. The encryption key is wrapped by the operating system and is not sent to mystic9.net. If a record cannot be decrypted, the app does not treat it as valid.</p>
+      <h3>Packaged binary</h3>
+      <p>The Windows and macOS installers pack the app into an ASAR archive and enable Electron’s archive integrity check. A changed archive does not load. The check applies to that packaged build. A development launch from source is not the fused installer.</p>
+      <h3>The window</h3>
+      <p>The interface runs in a sandboxed page with context isolation. It cannot open a shell, start a new window, or follow an outside address on its own. Shield actions stay in the main process.</p>
+      <h3>Transport</h3>
+      <p>The app speaks to mystic9.net only over HTTPS. Those connections require TLS 1.2 or TLS 1.3 and a certificate the device trusts. A plain HTTP address is refused, and a license redirect is refused.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="policy" id="policy-guardian" aria-labelledby="guardian-title">
+    <div class="pin policy-card">
+      <div class="policy-scroll">
+      <p class="kicker">Vortex9</p>
+      <h2 id="guardian-title">Guardian Protocol Terms</h2>
+      <button type="button" class="btn" data-close-policy>Close</button>
+      <p>Guardian Protocol is a household filter inside the paid Vortex9 shield. These terms are separate from the mystic9.net sanctuary terms.</p>
+      <h3>Who controls it</h3>
+      <p>The operator creates a passphrase on the device. That passphrase is stored only as a slow hash, and it is not sent to mystic9.net. Changing the watch switch or opening household rules requires that passphrase, or device sign-in where the Mac provides it. Five wrong attempts pause confirmation for 15 minutes. A confirmation token works once and expires after two minutes.</p>
+      <h3>What it checks</h3>
+      <p>Three lists run in one local check. The baseline list is built into the app and cannot be edited: adult-content indicators, tracking hosts, and predatory-host blocks. An optional threat feed adds host names the operator chooses to download. Household keywords and blocked sites are added by the operator and stored encrypted on the device.</p>
+      <h3>What it does not do</h3>
+      <p>Guardian does not decrypt secure web traffic and does not keep a browsing log. A blocked address is refused as a tunnel. Pasted text, and the clipboard only when the operator turns watch on, is checked on the device. A match adds a category count. The text itself is not stored.</p>
+      <h3>The household</h3>
+      <p>The filter is a tool for the adult who runs the device. It does not replace supervision. The free shield leaves Guardian locked.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="policy" id="policy-privacy" aria-labelledby="privacy-title">
+    <div class="pin policy-card">
+      <div class="policy-scroll">
+      <p class="kicker">Vortex9</p>
+      <h2 id="privacy-title">Privacy &amp; Sovereignty</h2>
+      <button type="button" class="btn" data-close-policy>Close</button>
+      <p>Vortex9 is local-first. This notice covers the desktop app and is separate from the mystic9.net sanctuary terms.</p>
+      <h3>What stays on the device</h3>
+      <p>Scans, block decisions, household rules, and the operator passphrase stay on the device. Scanned text is not written to disk and is not uploaded. Blocked addresses are not written into a history.</p>
+      <h3>What is sent</h3>
+      <p>Activation sends the account email, and a receipt reference only if you type one, to mystic9.net so the app can see whether a Vortex9 subscription is active. The optional threat feed, once switched on, downloads a host list. That download does not include scanned text, household rules, or browsing history.</p>
+      <h3>If the network is down</h3>
+      <p>A paid result is kept only after the server confirms an active monthly, annual, or business term that has not expired. If the server cannot be reached, the app uses that last sealed record for a limited time, or it stays on the free shield.</p>
+      </div>
+    </div>
+  </dialog>
+  <dialog class="policy" id="policy-aes" aria-labelledby="aes-title">
+    <div class="pin policy-card">
+      <div class="policy-scroll">
+      <p class="kicker">Technical declaration</p>
+      <h2 id="aes-title" class="seal-title"><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>AES-256 Local Encryption</h2>
+      <button type="button" class="btn" data-close-policy>Close</button>
+      <p>Vortex9 seals local records with AES-256-GCM. That covers the subscription cache, Guardian settings, household keywords and blocked sites, and the saved threat-feed host list.</p>
+      <p>The encryption key is wrapped by the operating system, through Windows safe storage or the macOS keychain. It is not sent to mystic9.net. If a record cannot be opened, the app does not treat it as valid.</p>
+      <p>This declaration is part of the Vortex9 security policy and is separate from the mystic9.net sanctuary terms.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="policy" id="policy-asar" aria-labelledby="asar-title">
+    <div class="pin policy-card">
+      <div class="policy-scroll">
+      <p class="kicker">Technical declaration</p>
+      <h2 id="asar-title">ASAR Binary Integrity</h2>
+      <button type="button" class="btn" data-close-policy>Close</button>
+      <p>The Windows and macOS installers pack Vortex9 into one ASAR archive. The packaged build checks that archive before the app runs. A changed archive does not load.</p>
+      <p>The check applies to the installer. A development launch from source is not that fused build.</p>
+      <p>This declaration is part of the Vortex9 security policy and is separate from the mystic9.net sanctuary terms.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="policy" id="policy-local" aria-labelledby="local-title">
+    <div class="pin policy-card">
+      <div class="policy-scroll">
+      <p class="kicker">Technical declaration</p>
+      <h2 id="local-title" class="seal-title"><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-2.8 7.4-7 9-4.2-1.6-7-4.8-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Local Telemetry</h2>
+      <button type="button" class="btn" data-close-policy>Close</button>
+      <p>The shield log is written on this device. Keyword and address checks run here as well. A match adds a category count. The scanned text is not written to disk and is not uploaded. A blocked address is not kept as a browsing history.</p>
+      <p>Activation can send the account email, and a receipt reference only if you type one, so the app can confirm a subscription. The optional threat feed downloads a host list. That download does not include the shield log, scanned text, or household rules.</p>
+      <p>This declaration is part of the Vortex9 privacy notice and is separate from the mystic9.net sanctuary terms.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="policy" id="policy-tls" aria-labelledby="tls-title">
+    <div class="pin policy-card">
+      <div class="policy-scroll">
+      <p class="kicker">Technical declaration</p>
+      <h2 id="tls-title" class="seal-title"><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>TLS Transport Security</h2>
+      <button type="button" class="btn" data-close-policy>Close</button>
+      <p>Vortex9 speaks to mystic9.net only over HTTPS. Subscription checks and the optional threat-feed download require TLS 1.2 or TLS 1.3, plus a certificate the device trusts.</p>
+      <p>A plain HTTP address is refused. A redirect away from the license check is refused.</p>
+      <p>This declaration is part of the Vortex9 security policy and is separate from the mystic9.net sanctuary terms.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    document.querySelectorAll('[data-policy]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var dialog = document.getElementById('policy-' + button.getAttribute('data-policy'));
+        if (dialog && typeof dialog.showModal === 'function') dialog.showModal();
+      });
+    });
+    document.querySelectorAll('[data-close-policy]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var dialog = button.closest('dialog');
+        if (dialog) dialog.close();
+      });
+    });
+    document.querySelectorAll('dialog.policy').forEach(function (dialog) {
+      dialog.addEventListener('click', function (event) {
+        if (event.target === dialog) dialog.close();
+      });
+    });
+    var checkoutStatus = document.getElementById('stripe-status');
+    var returnParams = new URLSearchParams(window.location.search);
+    function plain(value, fallback) {
+      if (typeof value === 'string' && value.trim()) return value.trim();
+      if (value && typeof value.message === 'string' && value.message.trim()) return value.message.trim();
+      return fallback;
+    }
+    function tierLabel(plan) {
+      if (plan === 'month') return 'Individual Monthly Tier (£8.00/month)';
+      if (plan === 'year') return 'Individual Annual Tier (£77.00/year)';
+      if (plan === 'citadel') return 'Sovereign Business Citadel Pack (£699.00/year)';
+      return 'paid tier';
+    }
+    if (returnParams.get('checkout') === 'cancelled') {
+      checkoutStatus.textContent = 'Checkout was cancelled. No payment was confirmed, and the free tier stays in place.';
+    }
+    if (returnParams.get('paid') === '1' && returnParams.get('session_id')) {
+      checkoutStatus.textContent = 'Checking this payment with Stripe...';
+      fetch('/api/vortex9-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ sessionId: returnParams.get('session_id') })
+      }).then(function (res) {
+        return res.json().then(function (json) { return { ok: res.ok, json: json }; });
+      }).then(function (result) {
+        var json = result.json || {};
+        var email = plain(json.email, '');
+        if (json.tier === 'paid' && json.active && email.indexOf('@') > 0) {
+          checkoutStatus.textContent = tierLabel(json.plan) + ' is confirmed for ' + email + '. Open Vortex9 and enter that email to unlock the sovereign package.';
+          return;
+        }
+        checkoutStatus.textContent = plain(json.error, 'Stripe has not confirmed this payment. The free tier stays in place.');
+      }).catch(function () {
+        checkoutStatus.textContent = 'The payment check could not be reached. The free tier stays in place until Stripe confirms it.';
+      });
+    }
+  </script>
+</body>
+</html>

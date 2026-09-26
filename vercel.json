@@ -1,0 +1,72 @@
+{
+  "framework": null,
+  "installCommand": "npm install --omit=dev",
+  "buildCommand": "npm run build",
+  "outputDirectory": "web",
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 10
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate, max-age=0"
+        }
+      ]
+    },
+    {
+      "source": "/feed.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/rss+xml; charset=utf-8"
+        },
+        {
+          "key": "Link",
+          "value": "<https://pubsubhubbub.appspot.com/>; rel=\"hub\", <https://mystic9.net/feed.xml>; rel=\"self\""
+        }
+      ]
+    },
+    {
+      "source": "/atom.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/atom+xml; charset=utf-8"
+        },
+        {
+          "key": "Link",
+          "value": "<https://pubsubhubbub.appspot.com/>; rel=\"hub\", <https://mystic9.net/atom.xml>; rel=\"self\""
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/rss.xml", "destination": "/api/feed" },
+    { "source": "/feed.xml", "destination": "/api/feed" },
+    { "source": "/feed/:userId.xml", "destination": "/api/user-feed?user=:userId" },
+    { "source": "/feed/:userId", "destination": "/api/user-feed?user=:userId" },
+    { "source": "/atom.xml", "destination": "/api/feed?format=atom" },
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/robots.txt", "destination": "/api/robots" },
+    { "source": "/share/:id", "destination": "/api/preview?article=:id" },
+    { "source": "/tools/pendulum", "destination": "/index.html" },
+    { "source": "/tools/:tool", "destination": "/index.html" },
+    { "source": "/library/:id", "destination": "/index.html" },
+    { "source": "/auth/callback", "destination": "/index.html" },
+    { "source": "/update-password", "destination": "/index.html" },
+    { "source": "/academy", "destination": "/index.html" },
+    { "source": "/academy/:slug", "destination": "/index.html" },
+    { "source": "/vortex9", "destination": "/vortex9/index.html" }
+  ],
+  "crons": [
+    {
+      "path": "/api/heartbeat",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}

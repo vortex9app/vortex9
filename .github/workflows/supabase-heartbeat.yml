@@ -1,0 +1,50 @@
+name: Supabase heartbeat
+
+on:
+  schedule:
+    # Every 3 days at 00:00 UTC. GitHub may delay scheduled jobs slightly.
+    - cron: "0 0 */3 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ping-mystic9-sanctuary:
+    name: Keep mystic9-sanctuary awake
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Ping Supabase health and public read
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_ANON_KEY:-}" ]; then
+            echo "Missing repository secrets. Set SUPABASE_URL and SUPABASE_ANON_KEY on this GitHub repo."
+            exit 1
+          fi
+
+          BASE="${SUPABASE_URL%/}"
+
+          ping_path() {
+            local path="$1"
+            local code
+            code="$(curl -sS -o /tmp/sb-heartbeat-body -w "%{http_code}" --max-time 30 \
+              -H "apikey: ${SUPABASE_ANON_KEY}" \
+              -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+              -H "Accept: application/json" \
+              "${BASE}${path}")"
+            echo "GET ${path} -> HTTP ${code}"
+            if ! [[ "${code}" =~ ^[0-9]+$ ]] || [ "${code}" -lt 200 ] || [ "${code}" -ge 500 ]; then
+              echo "Heartbeat failed for ${path}"
+              exit 1
+            fi
+          }
+
+          # Auth health check, then a one-row PostgREST read so the paused database wakes.
+          ping_path "/auth/v1/health"
+          ping_path "/rest/v1/user_feeds?select=user_slug&limit=1"
+          echo "mystic9-sanctuary heartbeat ok"

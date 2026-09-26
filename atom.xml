@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:websub="http://www.w3.org/2005/08/websub">
+  <id>https://mystic9.net/</id>
+  <title>mystic9.net Transmissions</title>
+  <updated>2026-09-19T09:00:00Z</updated>
+  <link rel="self" href="https://mystic9.net/atom.xml" type="application/atom+xml"/>
+  <link rel="alternate" href="https://mystic9.net/" type="text/html"/>
+  <link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+  <subtitle>Welcome to mystic9.net. The Barefoot Mystic&apos;s digital sanctuary for frequency activation, sacred geometry, numerology, meditation, water structuring, and multidimensional community ascension.</subtitle>
+  <icon>https://mystic9.net/character.jpg</icon>
+  <logo>https://mystic9.net/character.jpg</logo>
+  <entry>
+    <id>https://mystic9.net/</id>
+    <title>mystic9.net | The Digital Sanctuary &amp; Frequency Portal</title>
+    <updated>2026-03-21T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/"/>
+    <category term="Foundational Transmission"/>
+    <summary>Welcome to mystic9.net. The Barefoot Mystic&apos;s digital sanctuary for frequency activation, sacred geometry, numerology, meditation, water structuring, and multidimensional community ascension.</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/#about</id>
+    <title>About The Barefoot Mystic</title>
+    <updated>2026-03-21T10:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/#about"/>
+    <category term="Foundational Transmission"/>
+    <summary>The Barefoot Mystic works as a frequency activator and healer dedicated to bridging quantum fields, sacred geometry, and multidimensional consciousness.</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/#library</id>
+    <title>Mystic9 Library: Portals of Ancient Wisdom &amp; Quantum Truths</title>
+    <updated>2026-03-21T11:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/#library"/>
+    <category term="Library"/>
+    <summary>Enter the Green Sun Codex and Yellow Ankh Grimoire. Library chapters of Ancient Wisdom, Sanctuary Practice, Quantum Truths, and Esoteric Mastery.</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/energetic-sovereignty</id>
+    <title>The Architecture of Energetic Sovereignty: The Sacred Art of Energy Protection</title>
+    <updated>2026-03-21T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/energetic-sovereignty"/>
+    <category term="Ancient Wisdom"/>
+    <summary>Introduction: Walking the Matrix Unshackled To walk this earth as a barefoot mystic, a healer, or an awakened frequency activator is to live with the veil deliberately thinned. We open our sensory fields to the breath of the planet, tuning our physical and subtle bodies to harmonic nodes like the Schumann resonance,…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/anchor-and-the-storm</id>
+    <title>The Anchor and the Storm: Deep Grounding as Sovereign Armor in Spiritual Warfare</title>
+    <updated>2026-04-08T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/anchor-and-the-storm"/>
+    <category term="Sanctuary Practice"/>
+    <summary>The Anchor and the Storm: Deep Grounding as Sovereign Armor in Spiritual Warfare Introduction: The Myth of the Floating Mystic There is a widespread illusion in modern esoteric circles that spiritual evolution is an exercise in floating away from the density of the earth. Many seekers believe that true awakening means…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/quantum-tapestry</id>
+    <title>The Quantum Tapestry: Entanglement, Resonance, and Sacred Connections Across the Digital Grid</title>
+    <updated>2026-05-01T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/quantum-tapestry"/>
+    <category term="Quantum Truths"/>
+    <summary>The Quantum Tapestry: Entanglement, Resonance, and Sacred Connections Across the Digital Grid Introduction: The Screen as a Scrying Glass To the uninitiated, the digital realm is often dismissed as a sterile construct of silicon, code, and superficial noise, a third-dimensional trap designed to scatter human attention…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/sovereign-blueprint</id>
+    <title>The Sovereign Blueprint: Commanding Your Frequency within the Living Grid</title>
+    <updated>2026-05-20T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/sovereign-blueprint"/>
+    <category term="Esoteric Mastery"/>
+    <summary>The Sovereign Blueprint: Commanding Your Frequency within the Living Grid Introduction: The Illusion of the Outer Authority For lifetimes, humanity has been conditioned to look outward for validation, permission, and protection. We have knelt before external hierarchies, surrendered our power to consensus dogmas, and…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/alchemy-of-the-void</id>
+    <title>The Alchemy of the Void: Sacred Isolation and the Great Shedding of the Soul</title>
+    <updated>2026-06-11T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/alchemy-of-the-void"/>
+    <category term="Ancient Wisdom"/>
+    <summary>The Alchemy of the Void: Sacred Isolation and the Great Shedding of the Soul Introduction: The Collapse of the Old Matrix Every genuine spiritual awakening carries a hidden initiation, a profound passage that most spiritual books whisper about rather than explain. It is known as the dark night of the soul. When your…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/unseen-parasites</id>
+    <title>The Unseen Parasites: Energetic Hygiene, Intimacy, and the Mastery of Auric Boundaries</title>
+    <updated>2026-07-04T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/unseen-parasites"/>
+    <category term="Sanctuary Practice"/>
+    <summary>The Unseen Parasites: Energetic Hygiene, Intimacy, and the Mastery of Auric Boundaries Introduction: The Porousness of the Open Vessel To walk the spiritual path with an open heart and an elevated frequency is to live with heightened sensitivity. As your energetic senses awaken, you begin to perceive dimensions of…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/quantum-weaver</id>
+    <title>The Quantum Weaver: Manifesting Your True Life Path and the Esoteric Laws of Creation</title>
+    <updated>2026-08-09T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/quantum-weaver"/>
+    <category term="Quantum Truths"/>
+    <summary>The Quantum Weaver: Manifesting Your True Life Path and the Esoteric Laws of Creation Introduction: Beyond the Illusion of Vision Boards In the modern self-help industry, manifestation has been reduced to a superficial ritual of wishful thinking. Seekers are taught to cut out pictures of luxury cars, repeat hollow…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/architecture-of-the-oversoul</id>
+    <title>The Architecture of the Oversoul: Your Divine Double and the Cosmic Blueprint</title>
+    <updated>2026-09-18T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/architecture-of-the-oversoul"/>
+    <category term="Esoteric Mastery"/>
+    <summary>The Architecture of the Oversoul: Your Divine Double and the Cosmic Blueprint Introduction: Remembering the One Who Walks Above You Most seekers are taught to treat the higher self as a vague, kindly advisor floating somewhere above the personality. That teaching is incomplete. What the mystery schools named the…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/navigating-the-astral-lattice</id>
+    <title>Navigating the Astral Lattice: Decoding Hidden Instructions and Architecture in the Dream Realm</title>
+    <updated>2026-09-18T11:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/navigating-the-astral-lattice"/>
+    <category term="Esoteric Mastery"/>
+    <summary>Navigating the Astral Lattice: Decoding Hidden Instructions and Architecture in the Dream Realm Introduction: The Night Grid Is a Place The consensus culture treats dreaming as leftover psychology: a private cinema in which the brain files the day, mixes memory, and entertains itself until morning. That story is…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/share/seven-wheels-of-light</id>
+    <title>The Seven Wheels of Light: Mapping and Balancing the Chakra System for Sovereign Living</title>
+    <updated>2026-09-18T12:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/share/seven-wheels-of-light"/>
+    <category term="Sanctuary Practice"/>
+    <summary>The Seven Wheels of Light: Mapping and Balancing the Chakra System for Sovereign Living The chakra system is not a lifestyle diagram or a color-coded personality quiz. In the sanctuary of the barefoot mystic it is a living architecture: seven wheels of light spinning along the vertical axis of the body, circulating…</summary>
+  </entry>
+  <entry>
+    <id>https://mystic9.net/library/architecture-of-the-unwoken</id>
+    <title>The Architecture of the Unwoken: Navigating NPCs, Script-Runners, and Monitoring Spirits</title>
+    <updated>2026-09-19T09:00:00Z</updated>
+    <link rel="alternate" href="https://mystic9.net/library/architecture-of-the-unwoken"/>
+    <category term="Esoteric Architecture &amp; Field Sovereignty"/>
+    <summary>Introduction: The Crowd Is Not Neutral To walk as a barefoot mystic is to notice that consensus reality is populated, not empty. Some bodies carry a living Oversoul current. Some carry a borrowed loop. Some are watchtowers wearing human weather. If you treat every face as equally awake, you leak. If you treat every…</summary>
+  </entry>
+</feed>

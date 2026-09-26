@@ -1,0 +1,681 @@
+{
+  "generated_at": "2026-09-19T19:10:54.837764+00:00",
+  "site": "https://mystic9.net/",
+  "item_count": 84,
+  "matched_count": 46,
+  "themes": [
+    {
+      "term": "frequency",
+      "score": 8,
+      "examples": [
+        "mystic9.net | The Digital Sanctuary & Frequency Portal",
+        "About The Barefoot Mystic",
+        "The Architecture of Energetic Sovereignty: The Sacred Art of Energy Protection",
+        "The Sovereign Blueprint: Commanding Your Frequency within the Living Grid",
+        "The Unseen Parasites: Energetic Hygiene, Intimacy, and the Mastery of Auric Boundaries"
+      ],
+      "hook": "Cut between the frequency tool UI and a field-seal demonstration."
+    },
+    {
+      "term": "sacred geometry",
+      "score": 6,
+      "examples": [
+        "mystic9.net | The Digital Sanctuary & Frequency Portal",
+        "About The Barefoot Mystic",
+        "Sacred geometry",
+        "Leap Day (Hong Kong TV series)",
+        "Michael Feinberg"
+      ],
+      "hook": "Show Spiral of 9 overlays on the mandala generator."
+    },
+    {
+      "term": "numerology",
+      "score": 6,
+      "examples": [
+        "mystic9.net | The Digital Sanctuary & Frequency Portal",
+        "Numerology",
+        "Chinese numerology",
+        "Biblical numerology",
+        "Numerology (disambiguation)"
+      ],
+      "hook": "Walk a seeker through a 9-cycle reading on camera."
+    },
+    {
+      "term": "schumann",
+      "score": 6,
+      "examples": [
+        "The Architecture of Energetic Sovereignty: The Sacred Art of Energy Protection",
+        "Schumann resonances",
+        "Winfried Otto Schumann",
+        "Extremely low frequency",
+        "Resonance"
+      ],
+      "hook": "Pair a live Schumann pulse clip with The Anchor and the Storm."
+    },
+    {
+      "term": "astral",
+      "score": 6,
+      "examples": [
+        "Navigating the Astral Lattice: Decoding Hidden Instructions and Architecture in the Dream Realm",
+        "Astral projection",
+        "Astral Projection (band)",
+        "Astral plane",
+        "Astral body"
+      ],
+      "hook": "Tease Navigating the Astral Lattice without spoiling mastery pages."
+    },
+    {
+      "term": "chakra",
+      "score": 6,
+      "examples": [
+        "The Seven Wheels of Light: Mapping and Balancing the Chakra System for Sovereign Living",
+        "Chakra",
+        "Param Vir Chakra",
+        "Chakra (disambiguation)",
+        "Sudarshana Chakra"
+      ],
+      "hook": "Map the seven wheels of light in a 30-second activation."
+    },
+    {
+      "term": "solfeggio",
+      "score": 4,
+      "examples": [
+        "Scott Huckabay",
+        "KEXC",
+        "Jonathan Goldman",
+        "Julián Carrillo"
+      ],
+      "hook": "Layer 528 Hz under a short decree from the library."
+    },
+    {
+      "term": "torus",
+      "score": 3,
+      "examples": [
+        "Electromagnetic induction",
+        "Tokamak",
+        "Epoch (film)"
+      ],
+      "hook": "Translate 'torus' through the mystic9.net library voice."
+    },
+    {
+      "term": "cymatics",
+      "score": 3,
+      "examples": [
+        "Cymatics",
+        "Hans Jenny (cymatics)",
+        "Nigel Stanford"
+      ],
+      "hook": "Translate 'cymatics' through the mystic9.net library voice."
+    },
+    {
+      "term": "oversoul",
+      "score": 2,
+      "examples": [
+        "The Architecture of the Oversoul: Your Divine Double and the Cosmic Blueprint",
+        "The Architecture of the Unwoken: Navigating NPCs, Script-Runners, and Monitoring Spirits"
+      ],
+      "hook": "Speak to the divine double using Architecture of the Oversoul language."
+    },
+    {
+      "term": "meditation",
+      "score": 1,
+      "examples": [
+        "mystic9.net | The Digital Sanctuary & Frequency Portal"
+      ],
+      "hook": "Translate 'meditation' through the mystic9.net library voice."
+    },
+    {
+      "term": "ascension",
+      "score": 1,
+      "examples": [
+        "mystic9.net | The Digital Sanctuary & Frequency Portal"
+      ],
+      "hook": "Translate 'ascension' through the mystic9.net library voice."
+    },
+    {
+      "term": "water structuring",
+      "score": 1,
+      "examples": [
+        "mystic9.net | The Digital Sanctuary & Frequency Portal"
+      ],
+      "hook": "Translate 'water structuring' through the mystic9.net library voice."
+    },
+    {
+      "term": "energetic sovereignty",
+      "score": 1,
+      "examples": [
+        "The Architecture of Energetic Sovereignty: The Sacred Art of Energy Protection"
+      ],
+      "hook": "Translate 'energetic sovereignty' through the mystic9.net library voice."
+    },
+    {
+      "term": "spiritual warfare",
+      "score": 1,
+      "examples": [
+        "The Anchor and the Storm: Deep Grounding as Sovereign Armor in Spiritual Warfare"
+      ],
+      "hook": "Translate 'spiritual warfare' through the mystic9.net library voice."
+    },
+    {
+      "term": "grounding",
+      "score": 1,
+      "examples": [
+        "The Anchor and the Storm: Deep Grounding as Sovereign Armor in Spiritual Warfare"
+      ],
+      "hook": "Film barefoot earth-contact and decree work from energetic sovereignty."
+    },
+    {
+      "term": "auric",
+      "score": 1,
+      "examples": [
+        "The Unseen Parasites: Energetic Hygiene, Intimacy, and the Mastery of Auric Boundaries"
+      ],
+      "hook": "Translate 'auric' through the mystic9.net library voice."
+    },
+    {
+      "term": "manifestation",
+      "score": 1,
+      "examples": [
+        "The Quantum Weaver: Manifesting Your True Life Path and the Esoteric Laws of Creation"
+      ],
+      "hook": "Use Quantum Weaver: frequency precedes form, then a single action."
+    },
+    {
+      "term": "toroidal",
+      "score": 1,
+      "examples": [
+        "Electromagnetic induction"
+      ],
+      "hook": "Translate 'toroidal' through the mystic9.net library voice."
+    }
+  ],
+  "content_hooks": [
+    "Cut between the frequency tool UI and a field-seal demonstration.",
+    "Show Spiral of 9 overlays on the mandala generator.",
+    "Walk a seeker through a 9-cycle reading on camera.",
+    "Pair a live Schumann pulse clip with The Anchor and the Storm.",
+    "Tease Navigating the Astral Lattice without spoiling mastery pages.",
+    "Map the seven wheels of light in a 30-second activation.",
+    "Layer 528 Hz under a short decree from the library.",
+    "Translate 'torus' through the mystic9.net library voice."
+  ],
+  "items": [
+    {
+      "title": "mystic9.net | The Digital Sanctuary & Frequency Portal",
+      "url": "https://mystic9.net/",
+      "summary": "Welcome to mystic9.net. The Barefoot Mystic's digital sanctuary for frequency activation, sacred geometry, numerology, meditation, water structuring, and multidimensional community ascension.",
+      "published": "Sat, 21 Mar 2026 09:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "sacred geometry",
+        "numerology",
+        "meditation",
+        "ascension",
+        "frequency",
+        "water structuring"
+      ]
+    },
+    {
+      "title": "About The Barefoot Mystic",
+      "url": "https://mystic9.net/#about",
+      "summary": "The Barefoot Mystic works as a frequency activator and healer dedicated to bridging quantum fields, sacred geometry, and multidimensional consciousness.",
+      "published": "Sat, 21 Mar 2026 10:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "sacred geometry",
+        "frequency"
+      ]
+    },
+    {
+      "title": "The Architecture of Energetic Sovereignty: The Sacred Art of Energy Protection",
+      "url": "https://mystic9.net/share/energetic-sovereignty",
+      "summary": "Introduction: Walking the Matrix Unshackled To walk this earth as a barefoot mystic, a healer, or an awakened frequency activator is to live with the veil deliberately thinned. We open our sensory fields to the breath of the planet, tuning our physical and subtle bodies to harmonic nodes like the Schumann resonance,…",
+      "published": "Sat, 21 Mar 2026 09:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "energetic sovereignty",
+        "schumann",
+        "frequency"
+      ]
+    },
+    {
+      "title": "The Anchor and the Storm: Deep Grounding as Sovereign Armor in Spiritual Warfare",
+      "url": "https://mystic9.net/share/anchor-and-the-storm",
+      "summary": "The Anchor and the Storm: Deep Grounding as Sovereign Armor in Spiritual Warfare Introduction: The Myth of the Floating Mystic There is a widespread illusion in modern esoteric circles that spiritual evolution is an exercise in floating away from the density of the earth. Many seekers believe that true awakening means…",
+      "published": "Wed, 08 Apr 2026 09:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "spiritual warfare",
+        "grounding"
+      ]
+    },
+    {
+      "title": "The Sovereign Blueprint: Commanding Your Frequency within the Living Grid",
+      "url": "https://mystic9.net/share/sovereign-blueprint",
+      "summary": "The Sovereign Blueprint: Commanding Your Frequency within the Living Grid Introduction: The Illusion of the Outer Authority For lifetimes, humanity has been conditioned to look outward for validation, permission, and protection. We have knelt before external hierarchies, surrendered our power to consensus dogmas, and…",
+      "published": "Wed, 20 May 2026 09:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "frequency"
+      ]
+    },
+    {
+      "title": "The Unseen Parasites: Energetic Hygiene, Intimacy, and the Mastery of Auric Boundaries",
+      "url": "https://mystic9.net/share/unseen-parasites",
+      "summary": "The Unseen Parasites: Energetic Hygiene, Intimacy, and the Mastery of Auric Boundaries Introduction: The Porousness of the Open Vessel To walk the spiritual path with an open heart and an elevated frequency is to live with heightened sensitivity. As your energetic senses awaken, you begin to perceive dimensions of…",
+      "published": "Sat, 04 Jul 2026 09:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "auric",
+        "frequency"
+      ]
+    },
+    {
+      "title": "The Quantum Weaver: Manifesting Your True Life Path and the Esoteric Laws of Creation",
+      "url": "https://mystic9.net/share/quantum-weaver",
+      "summary": "The Quantum Weaver: Manifesting Your True Life Path and the Esoteric Laws of Creation Introduction: Beyond the Illusion of Vision Boards In the modern self-help industry, manifestation has been reduced to a superficial ritual of wishful thinking. Seekers are taught to cut out pictures of luxury cars, repeat hollow…",
+      "published": "Sun, 09 Aug 2026 09:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "manifestation"
+      ]
+    },
+    {
+      "title": "The Architecture of the Oversoul: Your Divine Double and the Cosmic Blueprint",
+      "url": "https://mystic9.net/share/architecture-of-the-oversoul",
+      "summary": "The Architecture of the Oversoul: Your Divine Double and the Cosmic Blueprint Introduction: Remembering the One Who Walks Above You Most seekers are taught to treat the higher self as a vague, kindly advisor floating somewhere above the personality. That teaching is incomplete. What the mystery schools named the…",
+      "published": "Fri, 18 Sep 2026 09:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "oversoul"
+      ]
+    },
+    {
+      "title": "Navigating the Astral Lattice: Decoding Hidden Instructions and Architecture in the Dream Realm",
+      "url": "https://mystic9.net/share/navigating-the-astral-lattice",
+      "summary": "Navigating the Astral Lattice: Decoding Hidden Instructions and Architecture in the Dream Realm Introduction: The Night Grid Is a Place The consensus culture treats dreaming as leftover psychology: a private cinema in which the brain files the day, mixes memory, and entertains itself until morning. That story is…",
+      "published": "Fri, 18 Sep 2026 11:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "astral"
+      ]
+    },
+    {
+      "title": "The Seven Wheels of Light: Mapping and Balancing the Chakra System for Sovereign Living",
+      "url": "https://mystic9.net/share/seven-wheels-of-light",
+      "summary": "The Seven Wheels of Light: Mapping and Balancing the Chakra System for Sovereign Living The chakra system is not a lifestyle diagram or a color-coded personality quiz. In the sanctuary of the barefoot mystic it is a living architecture: seven wheels of light spinning along the vertical axis of the body, circulating…",
+      "published": "Fri, 18 Sep 2026 12:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "chakra"
+      ]
+    },
+    {
+      "title": "The Architecture of the Unwoken: Navigating NPCs, Script-Runners, and Monitoring Spirits",
+      "url": "https://mystic9.net/library/architecture-of-the-unwoken",
+      "summary": "Introduction: The Crowd Is Not Neutral To walk as a barefoot mystic is to notice that consensus reality is populated, not empty. Some bodies carry a living Oversoul current. Some carry a borrowed loop. Some are watchtowers wearing human weather. If you treat every face as equally awake, you leak. If you treat every…",
+      "published": "Sat, 19 Sep 2026 09:00:00 GMT",
+      "source": "mystic9-feed",
+      "matched_keywords": [
+        "oversoul"
+      ]
+    },
+    {
+      "title": "Schumann resonances",
+      "url": "https://en.wikipedia.org/wiki/Schumann_resonances",
+      "summary": "The Schumann resonances (SR) are a set of spectral peaks in the extremely low frequency portion of the Earth's electromagnetic field spectrum. They are",
+      "published": "",
+      "source": "wikipedia:Schumann resonance",
+      "matched_keywords": [
+        "schumann",
+        "frequency"
+      ]
+    },
+    {
+      "title": "Winfried Otto Schumann",
+      "url": "https://en.wikipedia.org/wiki/Winfried_Otto_Schumann",
+      "summary": "Winfried Otto Schumann (May 20, 1888 – September 22, 1974) was a German physicist and electrical engineer who predicted the Schumann resonances , a series",
+      "published": "",
+      "source": "wikipedia:Schumann resonance",
+      "matched_keywords": [
+        "schumann"
+      ]
+    },
+    {
+      "title": "Extremely low frequency",
+      "url": "https://en.wikipedia.org/wiki/Extremely_low_frequency",
+      "summary": "these frequencies, so the Schumann resonances can be used to monitor global thunderstorm activity. Interest in Schumann resonances was renewed in 1993 when",
+      "published": "",
+      "source": "wikipedia:Schumann resonance",
+      "matched_keywords": [
+        "schumann",
+        "frequency"
+      ]
+    },
+    {
+      "title": "Resonance",
+      "url": "https://en.wikipedia.org/wiki/Resonance",
+      "summary": "resonance Formant Limbic resonance Nonlinear resonance Normal mode Positive feedback Schumann resonance Simple harmonic motion Stochastic resonance Sympathetic",
+      "published": "",
+      "source": "wikipedia:Schumann resonance",
+      "matched_keywords": [
+        "schumann"
+      ]
+    },
+    {
+      "title": "Earth–ionosphere waveguide",
+      "url": "https://en.wikipedia.org/wiki/Earth%E2%80%93ionosphere_waveguide",
+      "summary": "with the Earth's radius. The first resonance peaks are at 7.5, 15, and 22,5 Hz. These are the Schumann resonances . The spectral signals from lightning",
+      "published": "",
+      "source": "wikipedia:Schumann resonance",
+      "matched_keywords": [
+        "schumann"
+      ]
+    },
+    {
+      "title": "Sacred geometry",
+      "url": "https://en.wikipedia.org/wiki/Sacred_geometry",
+      "summary": "Sacred geometry ascribes symbolic and sacred meanings to certain geometric shapes and certain geometric proportions. It is associated with the belief of",
+      "published": "",
+      "source": "wikipedia:sacred geometry",
+      "matched_keywords": [
+        "sacred geometry"
+      ]
+    },
+    {
+      "title": "Leap Day (Hong Kong TV series)",
+      "url": "https://en.wikipedia.org/wiki/Leap_Day_%28Hong_Kong_TV_series%29",
+      "summary": "— Member of Sacred Geometry Association. Specialised in conspiracy theories. Esther So [zh] as 'Tripper' (跳掣) — Member of Sacred Geometry Association",
+      "published": "",
+      "source": "wikipedia:sacred geometry",
+      "matched_keywords": [
+        "sacred geometry"
+      ]
+    },
+    {
+      "title": "Michael Feinberg",
+      "url": "https://en.wikipedia.org/wiki/Michael_Feinberg",
+      "summary": "computer games Endorfun and Ishido. He is also the creator of lightSource Sacred Geometry software, and more recently Pypeline, a rich-media software platform",
+      "published": "",
+      "source": "wikipedia:sacred geometry",
+      "matched_keywords": [
+        "sacred geometry"
+      ]
+    },
+    {
+      "title": "Sacred space",
+      "url": "https://en.wikipedia.org/wiki/Sacred_space",
+      "summary": "Builders' Rites and Electional Astrology in the European Tradition . Pennick, Nigel: Sacred Geometry : Symbolism and Purpose in Religious Structures.",
+      "published": "",
+      "source": "wikipedia:sacred geometry",
+      "matched_keywords": [
+        "sacred geometry"
+      ]
+    },
+    {
+      "title": "Numerology",
+      "url": "https://en.wikipedia.org/wiki/Numerology",
+      "summary": "Numerology (known before the 20th century as arithmancy) is the belief in an occult, divine or mystical relationship between a number and metaphysical",
+      "published": "",
+      "source": "wikipedia:numerology",
+      "matched_keywords": [
+        "numerology"
+      ]
+    },
+    {
+      "title": "Chinese numerology",
+      "url": "https://en.wikipedia.org/wiki/Chinese_numerology",
+      "summary": "is considered the highest number representing great success in Chinese numerology , thus the number 54 can also be interpreted as 5 + 4 = 9, to mean great",
+      "published": "",
+      "source": "wikipedia:numerology",
+      "matched_keywords": [
+        "numerology"
+      ]
+    },
+    {
+      "title": "Biblical numerology",
+      "url": "https://en.wikipedia.org/wiki/Biblical_numerology",
+      "summary": "Biblical numerology is the use of numerology in the Bible to convey a meaning outside of the numerical value of the actual number being used. Numerological values",
+      "published": "",
+      "source": "wikipedia:numerology",
+      "matched_keywords": [
+        "numerology"
+      ]
+    },
+    {
+      "title": "Numerology (disambiguation)",
+      "url": "https://en.wikipedia.org/wiki/Numerology_%28disambiguation%29",
+      "summary": "Numerology is the mystical belief about numbers. It may also refer to: Numerology (Ismailism), a religious belief Numerology (wireless), a concept in wireless",
+      "published": "",
+      "source": "wikipedia:numerology",
+      "matched_keywords": [
+        "numerology"
+      ]
+    },
+    {
+      "title": "11:11 (numerology)",
+      "url": "https://en.wikipedia.org/wiki/11%3A11_%28numerology%29",
+      "summary": "In numerology , 11:11 is considered to be a significant moment in time for an event to occur. It is seen as an example of synchronicity, as well as a favorable",
+      "published": "",
+      "source": "wikipedia:numerology",
+      "matched_keywords": [
+        "numerology"
+      ]
+    },
+    {
+      "title": "Chakra",
+      "url": "https://en.wikipedia.org/wiki/Chakra",
+      "summary": "translation of Pūrṇānanda Yati's Ṣaṭ- chakra -nirūpaṇa (\"Explanation of the Six Chakras ,\" 1577). Modern Western Occultism views chakras as actual though esoteric energy-centers",
+      "published": "",
+      "source": "wikipedia:chakra",
+      "matched_keywords": [
+        "chakra"
+      ]
+    },
+    {
+      "title": "Param Vir Chakra",
+      "url": "https://en.wikipedia.org/wiki/Param_Vir_Chakra",
+      "summary": "Param Vir Chakra (PVC) is India's highest military decoration, awarded for displaying distinguished acts of valour during wartime. Param Vir Chakra translates",
+      "published": "",
+      "source": "wikipedia:chakra",
+      "matched_keywords": [
+        "chakra"
+      ]
+    },
+    {
+      "title": "Chakra (disambiguation)",
+      "url": "https://en.wikipedia.org/wiki/Chakra_%28disambiguation%29",
+      "summary": "Sudarshana Chakra or chakra , a discus weapon used by the Hindu deity Vishnu Chakra (1981 film), a 1981 Indian Hindi-language film Chakra (2016 film)",
+      "published": "",
+      "source": "wikipedia:chakra",
+      "matched_keywords": [
+        "chakra"
+      ]
+    },
+    {
+      "title": "Sudarshana Chakra",
+      "url": "https://en.wikipedia.org/wiki/Sudarshana_Chakra",
+      "summary": "mythology, the Sudarshana Chakra (Sanskrit: सुदर्शनचक्र) is a divine spinning disc, attributed to Vishnu. The Sudarshana Chakra is generally portrayed on",
+      "published": "",
+      "source": "wikipedia:chakra",
+      "matched_keywords": [
+        "chakra"
+      ]
+    },
+    {
+      "title": "Kirti Chakra",
+      "url": "https://en.wikipedia.org/wiki/Kirti_Chakra",
+      "summary": "The Kirti Chakra (lit. 'Wheel of Glory') is an Indian military decoration awarded for valour, courageous action or self-sacrifice away from the field of",
+      "published": "",
+      "source": "wikipedia:chakra",
+      "matched_keywords": [
+        "chakra"
+      ]
+    },
+    {
+      "title": "Scott Huckabay",
+      "url": "https://en.wikipedia.org/wiki/Scott_Huckabay",
+      "summary": "'Temple of Dendara'. Scott tunes his guitar intuitively to one of the Solfeggio frequencies which are claimed to affect or improve various aspects of physical",
+      "published": "",
+      "source": "wikipedia:solfeggio frequencies",
+      "matched_keywords": [
+        "solfeggio"
+      ]
+    },
+    {
+      "title": "KEXC",
+      "url": "https://en.wikipedia.org/wiki/KEXC",
+      "summary": "Hustle\" and began stunting, airing a two-hour sound collage of solfeggio frequencies , shortwave radio static, ambient music and classic Bay Area radio",
+      "published": "",
+      "source": "wikipedia:solfeggio frequencies",
+      "matched_keywords": [
+        "solfeggio"
+      ]
+    },
+    {
+      "title": "Blue Morpho (album)",
+      "url": "https://en.wikipedia.org/wiki/Blue_Morpho_%28album%29",
+      "summary": "432 Hz rather than standard concert pitch. O'Brien believed that the frequency has healing properties and could \"vibrate in harmony with the cells in",
+      "published": "",
+      "source": "wikipedia:solfeggio frequencies",
+      "matched_keywords": [
+        "frequency"
+      ]
+    },
+    {
+      "title": "Jonathan Goldman",
+      "url": "https://en.wikipedia.org/wiki/Jonathan_Goldman",
+      "summary": "Merkaba of Sound Spirit Music 2014 Healing Sounds: Frequencies II Spirit Music 2014 Supreme Solfeggio Spirit Music 2016 Quantum Resonance Spirit Music 2018",
+      "published": "",
+      "source": "wikipedia:solfeggio frequencies",
+      "matched_keywords": [
+        "solfeggio"
+      ]
+    },
+    {
+      "title": "Julián Carrillo",
+      "url": "https://en.wikipedia.org/wiki/Juli%C3%A1n_Carrillo",
+      "summary": "1941 Carrillo published Método racional de solfeo (Rational method of solfeggio ). Its guiding idea is that a person has to proceed from known things to",
+      "published": "",
+      "source": "wikipedia:solfeggio frequencies",
+      "matched_keywords": [
+        "solfeggio"
+      ]
+    },
+    {
+      "title": "Electromagnetic induction",
+      "url": "https://en.wikipedia.org/wiki/Electromagnetic_induction",
+      "summary": "iron ring or \" torus \" (an arrangement similar to a modern toroidal transformer).[citation needed] Based on his understanding of electromagnets , he expected",
+      "published": "",
+      "source": "wikipedia:torus electromagnetic",
+      "matched_keywords": [
+        "toroidal",
+        "torus"
+      ]
+    },
+    {
+      "title": "Tokamak",
+      "url": "https://en.wikipedia.org/wiki/Tokamak",
+      "summary": "magnetic field inside the torus ; a pulsed magnetic field through the hole in the torus induces the axial current in the torus which has a poloidal magnetic",
+      "published": "",
+      "source": "wikipedia:torus electromagnetic",
+      "matched_keywords": [
+        "torus"
+      ]
+    },
+    {
+      "title": "Epoch (film)",
+      "url": "https://en.wikipedia.org/wiki/Epoch_%28film%29",
+      "summary": "natives, who call it the Torus and consider it a gift from the gods with extraordinary healing properties. The US team enters the Torus , but an air strike by",
+      "published": "",
+      "source": "wikipedia:torus electromagnetic",
+      "matched_keywords": [
+        "torus"
+      ]
+    },
+    {
+      "title": "Cymatics",
+      "url": "https://en.wikipedia.org/wiki/Cymatics",
+      "summary": "Cymatics (from Ancient Greek: κῦμα, romanized: kŷma, lit. 'wave') is a subset of modal vibrational phenomena. The term was coined by Swiss physician Hans",
+      "published": "",
+      "source": "wikipedia:cymatics",
+      "matched_keywords": [
+        "cymatics"
+      ]
+    },
+    {
+      "title": "Hans Jenny (cymatics)",
+      "url": "https://en.wikipedia.org/wiki/Hans_Jenny_%28cymatics%29",
+      "summary": "Wiederholung (The laws of Repetition) 1967: Kymatic ( Cymatics ) Volume 1 1972: Kymatic ( Cymatics ) Volume 2 \"Jenny, Hans\". hls-dhs-dss.ch (in German). Retrieved",
+      "published": "",
+      "source": "wikipedia:cymatics",
+      "matched_keywords": [
+        "cymatics"
+      ]
+    },
+    {
+      "title": "Nigel Stanford",
+      "url": "https://en.wikipedia.org/wiki/Nigel_Stanford",
+      "summary": "as his music videos Cymatics and Automatica. In January 2019, a Huawei commercial was accused of plagiarizing Stanford's Cymatics video; Huawei eventually",
+      "published": "",
+      "source": "wikipedia:cymatics",
+      "matched_keywords": [
+        "cymatics"
+      ]
+    },
+    {
+      "title": "Astral projection",
+      "url": "https://en.wikipedia.org/wiki/Astral_projection",
+      "summary": "In esotericism, astral projection (also known as astral travel, soul journey, soul wandering, spiritual journey, spiritual travel) is an intentional out-of-body",
+      "published": "",
+      "source": "wikipedia:astral projection",
+      "matched_keywords": [
+        "astral"
+      ]
+    },
+    {
+      "title": "Astral Projection (band)",
+      "url": "https://en.wikipedia.org/wiki/Astral_Projection_%28band%29",
+      "summary": "Astral Projection is an Israeli electronic musical group, producing psychedelic trance and Goa trance music. Its current members are Avi Nissim and Lior",
+      "published": "",
+      "source": "wikipedia:astral projection",
+      "matched_keywords": [
+        "astral"
+      ]
+    },
+    {
+      "title": "Astral plane",
+      "url": "https://en.wikipedia.org/wiki/Astral_plane",
+      "summary": "The astral plane, also called the astral realm, or the astral world, or the soul realm, or the spirit realm, is a plane of existence postulated by classical",
+      "published": "",
+      "source": "wikipedia:astral projection",
+      "matched_keywords": [
+        "astral"
+      ]
+    },
+    {
+      "title": "Astral body",
+      "url": "https://en.wikipedia.org/wiki/Astral_body",
+      "summary": "astral projection . Where this refers to a supposed movement around the real world, as in Muldoon and Carrington's book The Projection of the Astral Body",
+      "published": "",
+      "source": "wikipedia:astral projection",
+      "matched_keywords": [
+        "astral"
+      ]
+    },
+    {
+      "title": "Out-of-body experience",
+      "url": "https://en.wikipedia.org/wiki/Out-of-body_experience",
+      "summary": "Robert Monroe, as an alternative to belief-centric labels such as \" astral projection \" or \"spirit walking\". OBEs have been induced by traumatic brain injuries",
+      "published": "",
+      "source": "wikipedia:astral projection",
+      "matched_keywords": [
+        "astral"
+      ]
+    }
+  ],
+  "rag_notes": [
+    "Blend trending language with canonical mystic9.net chapter URLs, not third-party definitions.",
+    "Keep Barefoot Mystic terminology: energetic sovereignty, Spiral of 9, toroidal field, Oversoul."
+  ]
+}

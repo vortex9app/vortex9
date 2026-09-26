@@ -1,0 +1,61 @@
+{
+  "name": "vortex9",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vortex9 sovereign digital shield for Windows and macOS.",
+  "author": "mystic9.net",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "app:dev": "electron .",
+    "check": "node shield/self-check.js",
+    "build:win": "electron-builder --win nsis zip --x64",
+    "build:mac": "electron-builder --mac dmg zip --universal",
+    "app:build": "electron-builder --win nsis zip --x64",
+    "build": "electron-builder --win nsis zip --mac dmg zip"
+  },
+  "build": {
+    "appId": "net.mystic9.vortex9",
+    "productName": "Vortex9",
+    "asar": true,
+    "afterPack": "build/harden-fuses.js",
+    "directories": {
+      "output": "../../release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "shield/**/*",
+      "!shield/self-check.js",
+      "!shield/dev-creator.js"
+    ],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "zip", "arch": ["x64"] }
+      ],
+      "artifactName": "Vortex9-Windows-Setup.${ext}",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Vortex9"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "artifactName": "Vortex9-macOS-Installer.${ext}"
+    }
+  },
+  "devDependencies": {
+    "@electron/fuses": "^1.8.0",
+    "electron": "33.4.11",
+    "electron-builder": "25.1.8"
+  }
+}

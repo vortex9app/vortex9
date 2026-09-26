@@ -1,0 +1,28 @@
+{
+  "rss": [
+    {
+      "name": "mystic9-feed",
+      "url": "https://mystic9.net/feed.xml"
+    },
+    {
+      "name": "nasa",
+      "url": "https://www.nasa.gov/feed/"
+    },
+    {
+      "name": "esa-space-science",
+      "url": "https://www.esa.int/rssfeed/Our_Activities/Space_Science"
+    }
+  ],
+  "youtube_rss": [],
+  "wikipedia_queries": [
+    "Schumann resonance",
+    "sacred geometry",
+    "numerology",
+    "chakra",
+    "solfeggio frequencies",
+    "torus electromagnetic",
+    "cymatics",
+    "astral projection",
+    "dark night of the soul"
+  ]
+}
