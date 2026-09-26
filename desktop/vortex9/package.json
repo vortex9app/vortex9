@@ -18,6 +18,7 @@
     "appId": "net.mystic9.vortex9",
     "productName": "Vortex9",
     "asar": true,
+    "icon": "build/icon.png",
     "afterPack": "build/harden-fuses.js",
     "directories": {
       "output": "../../release"
@@ -36,6 +37,7 @@
         { "target": "zip", "arch": ["x64"] }
       ],
       "artifactName": "Vortex9-Windows-Setup.${ext}",
+      "icon": "build/icon.ico",
       "signAndEditExecutable": false
     },
     "nsis": {
@@ -48,6 +50,7 @@
       "category": "public.app-category.utilities",
       "target": ["dmg", "zip"],
       "artifactName": "Vortex9-macOS-Installer-${arch}.${ext}",
+      "icon": "build/icon.icns",
       "hardenedRuntime": true,
       "gatekeeperAssess": false
     }
