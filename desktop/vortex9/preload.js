@@ -32,6 +32,7 @@ contextBridge.exposeInMainWorld('vortex9', {
     passphrase: String(payload && payload.passphrase || '').slice(0, 128)
   }),
   subscribe: () => ipcRenderer.invoke('vortex9:subscribe'),
+  startup: (enabled) => ipcRenderer.invoke('vortex9:startup', enabled === true),
   windowAction: (action) => ipcRenderer.invoke('vortex9:window', action === 'close' || action === 'minimize' ? action : ''),
   onState: (callback) => {
     const listener = (_event, next) => callback(next);

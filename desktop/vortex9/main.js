@@ -98,6 +98,7 @@ const state = {
   guardianFlags: 0,
   guardianCategory: '',
   threatFeed: false,
+  openAtLogin: false,
   feedHosts: [],
   household: emptyHousehold(),
   householdOpen: false,
@@ -312,6 +313,7 @@ function publicState() {
     guardianFlags: state.guardianFlags,
     guardianCategory: state.guardianCategory,
     threatFeed: state.threatFeed && state.tier === 'paid',
+    openAtLogin: state.openAtLogin === true,
     householdOpen: state.householdOpen && state.tier === 'paid',
     creatorAdmin: state.creatorAdmin === true && state.tier === 'paid' && !lockedDown,
     message: state.message
@@ -549,7 +551,19 @@ function readPrefs() {
 }
 
 function writePrefs() {
-  return writeJsonFile(prefsPath(), { threatFeed: !!state.threatFeed });
+  return writeJsonFile(prefsPath(), {
+    threatFeed: !!state.threatFeed,
+    openAtLogin: state.openAtLogin === true
+  });
+}
+
+function applyLoginItem(enabled) {
+  const openAtLogin = enabled === true;
+  state.openAtLogin = openAtLogin;
+  app.setLoginItemSettings({
+    openAtLogin,
+    path: app.getPath('exe')
+  });
 }
 
 function loadHousehold() {
@@ -760,7 +774,12 @@ app.whenReady().then(() => {
   if (!lockedDown) applyCreatorDev();
   watchDebugger();
   state.household = loadHousehold();
-  state.threatFeed = !!readPrefs().threatFeed;
+  const prefs = readPrefs();
+  state.threatFeed = !!prefs.threatFeed;
+  state.openAtLogin = !!prefs.openAtLogin;
+  if (state.openAtLogin) {
+    app.setLoginItemSettings({ openAtLogin: true, path: app.getPath('exe') });
+  }
   if (state.tier === 'paid' && state.threatFeed) state.feedHosts = readFeedCache();
   createWindow();
   const cached = readCache();
@@ -947,6 +966,22 @@ ipcMain.handle('vortex9:subscribe', (event) => {
   const url = new URL(SUBSCRIBE_URL);
   if (url.protocol !== 'https:' || url.hostname !== 'mystic9.net') return;
   return shell.openExternal(url.toString());
+});
+ipcMain.handle('vortex9:startup', (event, enabled) => {
+  if (!trustedSender(event)) return null;
+  if (paused('startup', 8, 60000)) return publicState();
+  applyLoginItem(enabled === true);
+  if (!writePrefs()) {
+    applyLoginItem(false);
+    state.message = 'This device could not save the startup setting.';
+    publish();
+    return publicState();
+  }
+  state.message = state.openAtLogin
+    ? 'Vortex9 will open when you sign in to this computer.'
+    : 'Vortex9 will not open automatically at sign-in.';
+  publish();
+  return publicState();
 });
 ipcMain.handle('vortex9:window', (event, action) => {
   if (!trustedSender(event) || !win) return;

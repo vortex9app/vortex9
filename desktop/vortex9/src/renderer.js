@@ -14,6 +14,8 @@ const guardianUpgrade = document.getElementById('guardian-upgrade');
 const guardianTools = document.getElementById('guardian-tools');
 const guardianResult = document.getElementById('guardian-result');
 const feedToggle = document.getElementById('feed-toggle');
+const startupToggle = document.getElementById('startup-toggle');
+const startupCaption = document.getElementById('startup-caption');
 const feedCaption = document.getElementById('feed-caption');
 const householdPanel = document.getElementById('household-panel');
 const householdList = document.getElementById('household-list');
@@ -126,6 +128,9 @@ function render(next) {
       guardianResult.textContent = 'Guardian Protocol is open. Flagged text is counted and not stored.';
     }
   }
+  const startupOn = !!next.openAtLogin;
+  startupToggle.setAttribute('aria-pressed', startupOn ? 'true' : 'false');
+  startupCaption.textContent = startupOn ? 'On' : 'Off';
   const feedOn = !!next.threatFeed;
   feedToggle.setAttribute('aria-pressed', feedOn ? 'true' : 'false');
   feedCaption.textContent = feedOn ? 'On' : 'Off';
@@ -326,6 +331,12 @@ document.getElementById('scan').addEventListener('click', async () => {
 guardianToggle.addEventListener('click', () => {
   const nextOn = guardianToggle.getAttribute('aria-pressed') !== 'true';
   openConfirm('watch', nextOn);
+});
+startupToggle.addEventListener('click', async () => {
+  const turningOn = startupToggle.getAttribute('aria-pressed') !== 'true';
+  startupToggle.setAttribute('aria-pressed', turningOn ? 'true' : 'false');
+  startupCaption.textContent = turningOn ? 'On' : 'Off';
+  render(await window.vortex9.startup(turningOn));
 });
 feedToggle.addEventListener('click', async () => {
   if (!last || last.guardianLocked) return;
