@@ -4,7 +4,7 @@ const path = require('path');
 const url = (
   process.env.VITE_SUPABASE_URL ||
   process.env.SUPABASE_URL ||
-  'https://ixxmwkkwghqkewwzyem.supabase.co'
+  'https://ixxmwkkwghqckewwzyem.supabase.co'
 ).replace(/\/+$/, '');
 
 const key = (

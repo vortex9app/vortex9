@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mampi Technologies Ltd</string>
+    <string name="title_activity_main">Mampi Technologies Ltd</string>
+    <string name="package_name">net.mystic9.app</string>
+    <string name="custom_url_scheme">net.mystic9.app</string>
+</resources>

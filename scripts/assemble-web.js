@@ -24,7 +24,7 @@ const FILES = [
   'robots.txt'
 ];
 
-const DIRS = ['public', 'vortex9'];
+const DIRS = ['public', 'vortex9', 'mampi'];
 
 function copyFile(rel) {
   const from = path.join(root, rel);

@@ -47,7 +47,7 @@ def supabase_settings() -> tuple[str, str, str]:
     url = (
         os.environ.get("SUPABASE_URL")
         or os.environ.get("VITE_SUPABASE_URL")
-        or "https://ixxmwkkwghqkewwzyem.supabase.co"
+        or "https://ixxmwkkwghqckewwzyem.supabase.co"
     ).rstrip("/")
     service = (
         os.environ.get("SUPABASE_SERVICE_ROLE_KEY")

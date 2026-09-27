@@ -11,6 +11,12 @@
     "app:build:mac": "npm run build:mac --prefix desktop/vortex9"
   },
   "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/core": "^8.5.2",
+    "@capacitor/ios": "^8.5.2",
     "@supabase/supabase-js": "2.116.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.2"
   }
 }

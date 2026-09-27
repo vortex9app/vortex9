@@ -1,7 +1,7 @@
 const { createClient } = require('@supabase/supabase-js');
 
 function supabaseUrl() {
-  return String(process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || 'https://ixxmwkkwghqkewwzyem.supabase.co')
+  return String(process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || 'https://ixxmwkkwghqckewwzyem.supabase.co')
     .replace(/[\[\]<>]/g, '')
     .replace(/\/+$/, '');
 }

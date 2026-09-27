@@ -392,6 +392,37 @@
       color: #ffffff;
     }
 
+    .corp-link {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(230, 200, 101, 0.1);
+      border: 1px solid rgba(230, 200, 101, 0.45);
+      color: #e6c865;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .corp-link:hover,
+    .corp-link:focus-visible {
+      background: rgba(230, 200, 101, 0.25);
+      border-color: #e6c865;
+      color: #ffffff;
+      outline: none;
+    }
+    footer a.corp-home {
+      color: #e6c865;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    footer a.corp-home:hover,
+    footer a.corp-home:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+
     /* Glowing Red Report Issues Button */
     .report-btn {
       background: rgba(255, 65, 54, 0.15);
@@ -605,6 +636,7 @@
       }
       .policy-btn,
       .copyright-btn,
+      .corp-link,
       .report-btn,
       .dropdown-btn {
         flex-shrink: 0;
@@ -5154,6 +5186,7 @@
       <input type="text" id="site-search-bar" class="nav-search-input" placeholder="Search tools..." onkeyup="filterSanctuarySections(event)">
 
       <!-- Policy Modal Trigger Button -->
+      <a class="corp-link" href="https://mampitech.com" target="_blank" rel="noopener noreferrer">Mampi Technologies</a>
       <button class="policy-btn" onclick="openPolicyModal()">Policies</button>
       <button type="button" class="copyright-btn" onclick="openCopyrightModal()">Copyright</button>
 
@@ -5179,6 +5212,7 @@
           Menu ▾
         </button>
         <ul class="dropdown-content" id="chakra-nav-links">
+          <li><a href="https://mampitech.com" target="_blank" rel="noopener noreferrer">Mampi Technologies</a></li>
           <li><a href="#tiers" onclick="selectMenuLink(this, event)">Tiers & Passes</a></li>
           <li><a href="#about" onclick="selectMenuLink(this, event)">About</a></li>
           <li><a href="#instructions" onclick="selectMenuLink(this, event)">Navigate</a></li>
@@ -5217,13 +5251,13 @@
       <button class="checkout-close" style="color: #ff4136;" onclick="closeReportModal()">&times;</button>
       <span class="agent-badge" style="background: rgba(255,65,54,0.15); border-color: #ff4136; color: #ff4136;">SANCTUARY ISSUE REPORTING</span>
       <h2 style="color: #ff4136; margin: 10px 0; font-size: 1.15rem;">🚨 Report Bug or Disruption</h2>
-      <p style="font-size: 0.82rem; color: #cbd5e1; margin-bottom: 15px; line-height: 1.5;">Encountered a glitch or technical issue? Submit your report below to route it directly to zen3845@outlook.com.</p>
+      <p style="font-size: 0.82rem; color: #cbd5e1; margin-bottom: 15px; line-height: 1.5;">Encountered a glitch or technical issue? Submit your report below to route it directly to support@mampitech.com.</p>
       
       <form onsubmit="event.preventDefault(); submitIssueReport();">
         <input type="text" id="report-name" placeholder="Your Seeker Name" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,65,54,0.3); color: #fff; padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 8px;" required>
         <input type="email" id="report-email" placeholder="Your Email Address" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,65,54,0.3); color: #fff; padding: 10px; width: 100%; margin-bottom: 10px; border-radius: 8px;" required>
         <textarea id="report-message" placeholder="Describe the issue or bug in detail..." rows="3" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,65,54,0.3); color: #fff; padding: 10px; width: 100%; margin-bottom: 12px; border-radius: 8px;" required></textarea>
-        <button type="submit" class="mystic-btn" style="background: #ff4136; color: #ffffff;">Transmit Issue to zen3845@outlook.com</button>
+        <button type="submit" class="mystic-btn" style="background: #ff4136; color: #ffffff;">Transmit Issue to support@mampitech.com</button>
       </form>
     </div>
   </div>
@@ -5366,8 +5400,8 @@
         <p>These sovereign writings and sanctuary materials are published under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener noreferrer">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)</a> license.</p>
         <p>You may share unmodified copies for non-commercial purposes only, with clear attribution to Mampi Technologies Ltd and mystic9.net. Commercial use, paid republication, scraping, model training, remixing, adaptation, and any other derivative work are strictly forbidden.</p>
         <p>Seekers may read the Green Sun Codex and related instruments inside this sanctuary. Printing, downloading for redistribution beyond the CC BY-NC-ND 4.0 terms, mirroring, or feeding these works into third-party models without written permission is a violation of these terms.</p>
-        <p>Requests for any other licensed use must be sent to zen3845@outlook.com.</p>
-        <p>© 2026 Mampi Technologies Ltd. All rights reserved.</p>
+        <p>Requests for any other licensed use must be sent to <a href="mailto:support@mampitech.com">support@mampitech.com</a>.</p>
+        <p>© 2026 <a href="https://mampitech.com" target="_blank" rel="noopener noreferrer">Mampi Technologies Ltd</a>. All rights reserved.</p>
       </div>
     </div>
   </div>
@@ -6570,6 +6604,7 @@
       <span>Index <strong id="tele-index">—</strong></span>
       <span id="tele-stamp">Planetary pulse aligning</span>
     </div>
+    <p><a class="corp-home" href="https://mampitech.com" target="_blank" rel="noopener noreferrer">Mampi Technologies Ltd</a></p>
     <p>© 2026 Mampi Technologies Ltd. All rights reserved.</p>
     <div class="trust-seals" aria-label="mystic9.net institutional seals">
       <div class="trust-seal">
@@ -8229,7 +8264,7 @@ Enter with sovereignty. Stay in the body even when the scenery is vast. Read the
       const message = document.getElementById('report-message').value.trim();
 
       if (!name || !email || !message) return alert("Please fill in all report fields.");
-      alert(`🚨 Thank you, ${name}. Your issue report has been successfully transmitted to zen3845@outlook.com.`);
+      alert(`🚨 Thank you, ${name}. Your issue report has been successfully transmitted to support@mampitech.com.`);
       document.getElementById('report-name').value = '';
       document.getElementById('report-email').value = '';
       document.getElementById('report-message').value = '';

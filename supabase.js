@@ -2,7 +2,7 @@
 const SUPABASE_URL = String(
   window.MYSTIC9_SUPABASE_URL ||
   window.VITE_SUPABASE_URL ||
-  'https://ixxmwkkwghqkewwzyem.supabase.co'
+  'https://ixxmwkkwghqckewwzyem.supabase.co'
 )
   .replace(/[\[\]<>]/g, '')
   .replace(/\/+$/, '');
@@ -13,7 +13,7 @@ const SUPABASE_ANON_KEY = String(
 ).trim();
 const SUPABASE_KEY = SUPABASE_ANON_KEY;
 if (!SUPABASE_ANON_KEY) {
-  console.error('Supabase anon key is missing. Paste the publishable/anon key for ixxmwkkwghqkewwzyem into config.js and .env');
+  console.error('Supabase anon key is missing. Paste the publishable/anon key for ixxmwkkwghqckewwzyem into config.js and .env');
 }
 
 const RECOVERY_FLAG_KEY = 'mystic9_password_recovery';
@@ -104,7 +104,7 @@ function hasPasswordRecoveryIntent() {
 }
 
 const MASTER_ADMIN_EMAIL = 'zen3845@outlook.com';
-const ADMIN_ALERT_ENDPOINT = 'https://formsubmit.co/ajax/zen3845@outlook.com';
+const ADMIN_ALERT_ENDPOINT = 'https://formsubmit.co/ajax/support@mampitech.com';
 
 let profilePersistTimer = null;
 
