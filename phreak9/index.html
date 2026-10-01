@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/public/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/assets/apple-touch-icon.png">
+  <title>Phreak9 | Autonomous Anti-DoS Shield</title>
+  <meta name="description" content="Phreak9 is a local anti-DoS packet filter and vulnerability-hardening shield from Mampi Technologies Ltd. Community scanning is free. Phreak9 Pro is £4.44 per month or £44.44 per year.">
+  <meta name="author" content="Mampi Technologies Ltd">
+  <meta name="copyright" content="© 2026 Mampi Technologies Ltd. All rights reserved.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mystic9.net/phreak9">
+  <meta property="og:site_name" content="mystic9.net">
+  <meta property="og:title" content="Phreak9 | Autonomous Anti-DoS Shield">
+  <meta property="og:description" content="Local packet defence, vulnerability scanning, and advisory hardening for the machine you control.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mystic9.net/phreak9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/statutory.css">
+  <link rel="stylesheet" href="/public/cookie-notice.css">
+  <link rel="stylesheet" href="/public/legal-modal.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phreak9","applicationCategory":"SecurityApplication","operatingSystem":"Windows, macOS, Linux, Android","url":"https://mystic9.net/phreak9","offers":[{"@type":"Offer","name":"Community","price":"0","priceCurrency":"GBP"},{"@type":"Offer","name":"Phreak9 Pro monthly","price":"4.44","priceCurrency":"GBP"},{"@type":"Offer","name":"Phreak9 Pro yearly","price":"44.44","priceCurrency":"GBP"}],"description":"Local anti-DoS packet filter and vulnerability-hardening shield. The Windows download is a GitHub placeholder until the release artifact is attached. macOS, Linux, and Android are in pre-deployment.","publisher":{"@type":"Organization","name":"Mampi Technologies Ltd","legalName":"Mampi Technologies Ltd","url":"https://mampitech.com","email":"support@mampitech.com","telephone":"+447435935395"}}
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: #000000; }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 70% 42% at 50% -8%, rgba(85, 107, 47, 0.2), transparent 58%),
+        #000000;
+      color: #ffffff;
+      font-family: Inter, sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.14;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='grain' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+      background-size: 220px 220px;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      color: #e8eaed;
+      background: #161616;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+    }
+    .brand-mark svg { width: 16px; height: 16px; }
+    .top-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px 18px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .top-links a {
+      text-decoration: none;
+      color: #f4f4f5;
+      transition: color 180ms ease, box-shadow 180ms ease;
+    }
+    .top-links a:hover,
+    .top-links a:focus-visible {
+      color: #ffffff;
+      box-shadow: inset 0 -1px 0 #556B2F;
+      outline: none;
+    }
+    .pin {
+      position: relative;
+      background: rgba(22, 22, 22, 0.78);
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      border-radius: 22px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(240px, 380px) 1fr;
+      gap: 36px;
+      align-items: center;
+      padding: 36px 32px;
+      overflow: hidden;
+    }
+    .emblem-shell {
+      width: min(340px, 100%);
+      margin: 0 auto;
+      aspect-ratio: 1;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 50% 46%, rgba(85, 107, 47, 0.28), transparent 48%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 30%),
+        #161616;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 48px rgba(85, 107, 47, 0.16);
+    }
+    .emblem-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(85, 107, 47, 0.16) 1px, transparent 1px), linear-gradient(90deg, rgba(85, 107, 47, 0.16) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at 50% 50%, #000 30%, transparent 72%);
+      pointer-events: none;
+    }
+    .emblem-shell::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 26px;
+      border: 1px solid rgba(85, 107, 47, 0.45);
+      pointer-events: none;
+    }
+    .emblem {
+      width: 78%;
+      height: 78%;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 0 18px rgba(85, 107, 47, 0.45));
+    }
+    .kicker {
+      color: #e8eaed;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: clamp(2.05rem, 4.4vw, 3.55rem);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .lead {
+      color: #e8eaed;
+      font-size: 1.05rem;
+      max-width: 40rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      font-family: inherit;
+      background: #161616;
+      color: #ffffff;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      cursor: pointer;
+      transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .btn:hover,
+    .btn:focus-visible {
+      background: rgba(85, 107, 47, 0.15);
+      border-color: #556B2F;
+      color: #ffffff;
+      outline: none;
+      box-shadow: 0 0 0 1px #556B2F, 0 0 16px rgba(85, 107, 47, 0.35);
+    }
+    section { margin-top: 22px; }
+    .card { padding: 28px 28px 26px; }
+    h2 {
+      font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .copy { color: #e8eaed; max-width: 68ch; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .feature {
+      min-width: 0;
+      padding: 18px 18px 16px;
+      border-radius: 16px;
+      background: rgba(22, 22, 22, 0.62);
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 24px rgba(85, 107, 47, 0.08);
+    }
+    .feature h3 {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .feature p { color: #e8eaed; font-size: 0.92rem; }
+    .seal-icon { width: 22px; height: 22px; margin-top: 1px; color: #e8eaed; }
+    .philosophy p + p { margin-top: 12px; }
+    footer {
+      margin-top: 28px;
+      color: #e8eaed;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    footer p { margin: 0 0 8px; max-width: 78ch; line-height: 1.45; }
+    footer a, footer a:link, footer a:visited { color: #e4d0a0; font-weight: 700; text-decoration: none; }
+    footer a:hover, footer a:focus-visible { color: #f6e7c1; text-decoration: underline; outline: none; }
+    html, body { background-color: #0a0a0a; color: #ffffff; }
+    :focus-visible { outline: 2px solid #556B2F; outline-offset: 2px; }
+    ::selection { background: #556B2F; color: #ffffff; }
+    .download-grid, .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .tier {
+      padding: 20px 18px;
+      border-radius: 16px;
+      background: rgba(10, 10, 10, 0.45);
+      border: 1px solid rgba(85, 107, 47, 0.55);
+    }
+    .tier h3 { font-size: 1.2rem; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .price { color: #e4d0a0; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 12px; }
+    .tier ul { margin: 0; padding-left: 1.1rem; color: #e8eaed; }
+    .tier li + li { margin-top: 8px; }
+    .download-note { margin-top: 14px; color: #e4d0a0; min-height: 1.4em; }
+    .download-slot { display: flex; min-width: 0; }
+    .download-btn, .download-btn:hover, .download-btn:focus-visible { cursor: pointer; opacity: 1; }
+    .download-btn.download-soon,
+    .download-btn.download-soon:hover,
+    .download-btn.download-soon:focus-visible {
+      width: 100%;
+      flex-direction: column;
+      gap: 6px;
+      cursor: not-allowed;
+      opacity: 0.62;
+      pointer-events: none;
+    }
+    .soon-badge {
+      color: #e4d0a0;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hash-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(228, 208, 160, 0.55);
+      background: rgba(10, 10, 10, 0.55);
+      color: #e4d0a0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .hash-badge strong { color: #ffffff; letter-spacing: 0.12em; }
+    .hash-details {
+      margin-top: 14px;
+      padding: 10px 14px;
+      border: 1px solid rgba(85, 107, 47, 0.4);
+      border-radius: 12px;
+      background: rgba(10, 10, 10, 0.45);
+    }
+    .hash-details summary { cursor: pointer; color: #e4d0a0; font-size: 0.78rem; font-weight: 700; }
+    .hash-details p { margin-top: 8px; color: #e8eaed; font-size: 0.88rem; }
+    .pay-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    #gate-accept:disabled { cursor: not-allowed; opacity: 0.55; }
+    .gate {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.72);
+    }
+    .gate[hidden] { display: none; }
+    .gate-card {
+      width: min(560px, 100%);
+      padding: 24px 22px;
+      border-radius: 22px;
+      background: #161616;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+    }
+    .gate-card h2 { font-size: 1.45rem; }
+    .gate-card p { color: #e8eaed; margin-bottom: 14px; }
+    .gate-check { display: flex; gap: 10px; align-items: flex-start; margin: 12px 0; color: #e8eaed; }
+    .gate-check input { margin-top: 4px; accent-color: #556B2F; }
+    .gate-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    @media (max-width: 1100px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 800px) {
+      .page { width: min(1240px, calc(100% - 28px)); }
+      .hero, .feature-grid, .download-grid, .tier-grid { grid-template-columns: 1fr; }
+      .top-links { justify-content: flex-start; width: 100%; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .hero, .card { padding: 22px 18px; }
+      .btn { max-width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .emblem { filter: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3.5 5 6.4v5.2c0 4.2 2.8 6.7 7 8.4 4.2-1.7 7-4.2 7-8.4V6.4L12 3.5z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m8.6 12 2.2 2.2 4.6-4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        Phreak9
+      </a>
+      <nav class="top-links" aria-label="Phreak9">
+        <a href="#downloads">Downloads</a>
+        <a href="#tiers">Tiers</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="/decoy9">Decoy9</a>
+        <a href="/vortex9">Vortex9</a>
+        <a href="https://mampitech.com" target="_blank" rel="noopener noreferrer">Mampi Technologies</a>
+        <a href="https://mystic9.net">mystic9.net</a>
+      </nav>
+    </header>
+
+    <section class="pin hero" id="top">
+      <div class="emblem-shell" role="img" aria-label="Phreak9 local defence shield">
+        <svg class="emblem" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M100 28 46 50v46c0 38 22 62 54 74 32-12 54-36 54-74V50L100 28z" fill="none" stroke="#556B2F" stroke-width="2"/>
+          <path d="M100 48 62 64v32c0 26 15 42 38 50 23-8 38-24 38-50V64L100 48z" fill="none" stroke="#c5d4a4" stroke-width="1.2"/>
+          <path d="m78 102 14 14 30-32" fill="none" stroke="#e4d0a0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M36 118h18M146 118h18M40 138h12M148 138h12" fill="none" stroke="#556B2F" stroke-width="1.2" stroke-linecap="round" opacity="0.8"/>
+          <circle cx="100" cy="168" r="2" fill="#556B2F"/>
+        </svg>
+      </div>
+      <div>
+        <p class="kicker">Anti-hack · Anti-DoS guardian</p>
+        <h1>Phreak9 holds the line on your own machine.</h1>
+        <p class="lead">A local shield for real-time behavioral anti-DoS packet interception, automatic scanning of local ports and dependencies, and proactive advisory hardening. It defends the device you control. It does not reach out to a network you do not.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#downloads">Download Phreak9</a>
+          <a class="btn" href="#tiers">Community and Pro</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="pin card">
+        <p class="kicker">Core functions</p>
+        <h2>Intercept, scan, and harden — on the host.</h2>
+        <p class="copy">Phreak9 is the defence pillar beside Decoy9. Messaging stays with Decoy9. Packet defence, local vulnerability review, and hardening advice stay with Phreak9, on the computer in front of you.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <h3><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 5 6.4v5.2c0 4.2 2.8 6.7 7 8.4 4.2-1.7 7-4.2 7-8.4V6.4L12 3.5z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>Anti-DoS interception</h3>
+            <p>Watches local traffic behaviour and intercepts packet patterns that look like a denial-of-service flood against this host.</p>
+          </article>
+          <article class="feature">
+            <h3><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m16 16 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Local vulnerability scan</h3>
+            <p>Checks listening ports and installed dependencies on this machine, then reports what needs attention. The scan does not leave the device.</p>
+          </article>
+          <article class="feature">
+            <h3><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16.5 9.5 12 13 15.5 19 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 8h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Advisory hardening</h3>
+            <p>Turns what the scan finds into local hardening advice you can apply on the host, before a weak port or dependency stays open.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <div class="pin card philosophy">
+        <p class="kicker">Sovereign suite</p>
+        <h2>Defence without a surveillance desk.</h2>
+        <p class="copy">Phreak9 belongs with Decoy9 in the Mampi Technologies suite. Decoy9 keeps a conversation on the devices that spoke it. Phreak9 keeps packet decisions, scans, and hardening notes on the device being defended.</p>
+        <p class="copy">The Windows control is a placeholder until the GitHub release carries the installer. macOS, Linux, and Android stay in pre-deployment. A platform label is not a promise that an installer exists today.</p>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="pin card">
+        <p class="kicker">Access gate</p>
+        <h2>Windows first. The other platforms are waiting.</h2>
+        <p class="copy">The Windows button opens the age and conduct gate, then continues to the GitHub releases page. That page is the placeholder until the signed installer is attached. macOS, Linux, and Android have no download yet.</p>
+        <div class="download-grid">
+          <button type="button" class="btn download-btn" data-file="https://github.com/vortex9app/phreak9/releases">Windows download</button>
+          <div class="download-slot" data-platform="macOS" title="Coming Soon (Pre-Deployment)">
+            <button type="button" class="btn download-btn download-soon" disabled>
+              <span>macOS</span>
+              <span class="soon-badge">Coming Soon (Pre-Deployment)</span>
+            </button>
+          </div>
+          <div class="download-slot" data-platform="Linux" title="Coming Soon (Pre-Deployment)">
+            <button type="button" class="btn download-btn download-soon" disabled>
+              <span>Linux</span>
+              <span class="soon-badge">Coming Soon (Pre-Deployment)</span>
+            </button>
+          </div>
+          <div class="download-slot" data-platform="Android" title="Coming Soon (Pre-Deployment)">
+            <button type="button" class="btn download-btn download-soon" disabled>
+              <span>Android</span>
+              <span class="soon-badge">Coming Soon (Pre-Deployment)</span>
+            </button>
+          </div>
+        </div>
+        <p class="hash-badge"><strong>SHA-256</strong><span>Release digest pending</span></p>
+        <details class="hash-details">
+          <summary>Verify File Integrity (SHA-256)</summary>
+          <p>No Windows artifact is attached yet, so this page does not publish a digest. When the installer is on the GitHub release, the SHA-256 will be listed beside that file. Check that digest against the file you download.</p>
+        </details>
+        <p class="download-note" id="download-note" role="status">Windows opens the age and terms gate, then the GitHub placeholder. macOS, Linux, and Android stay in pre-deployment. Installers are separate from Pro checkout.</p>
+      </div>
+    </section>
+
+    <section id="tiers">
+      <div class="pin card">
+        <p class="kicker">Master-number pricing</p>
+        <h2>Community stays free. Pro is the subscription.</h2>
+        <p class="copy">Community scanning does not require a subscription. Pro opens a live Stripe Checkout session for £4.44 a month or £44.44 a year. Checkout does not download an installer.</p>
+        <div class="tier-grid">
+          <article class="tier">
+            <h3>Community</h3>
+            <p class="price">£0 / forever</p>
+            <ul>
+              <li>Basic local vulnerability scanning</li>
+              <li>Manual threat alerts on this device</li>
+              <li>No subscription and no card</li>
+            </ul>
+          </article>
+          <article class="tier">
+            <h3>Phreak9 Pro</h3>
+            <p class="price">£4.44 / month or £44.44 / year</p>
+            <ul>
+              <li>Automated real-time kernel-level firewall defence</li>
+              <li>Zero-day patch automation on the host you control</li>
+              <li>Live heuristic threat feeds</li>
+            </ul>
+            <div class="pay-actions">
+              <a class="btn pay-btn" href="/api/phreak9-checkout?plan=month" target="_blank" rel="noopener noreferrer">Pro monthly · £4.44/mo</a>
+              <a class="btn pay-btn" href="/api/phreak9-checkout?plan=year" target="_blank" rel="noopener noreferrer">Pro yearly · £44.44/yr</a>
+            </div>
+          </article>
+        </div>
+        <p class="copy" id="pay-note" style="margin-top:16px">Pro monthly and Pro yearly open Stripe Checkout in a new tab. They do not download an installer. Cancel there and the Community tier stays in place.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Phreak9 is a mystic9.net instrument. It is owned and operated by <a href="https://mampitech.com" target="_blank" rel="noopener noreferrer">Mampi Technologies Ltd</a>. Decoy9, the peer messenger, remains at <a href="/decoy9">/decoy9</a>. Vortex9 remains at <a href="/vortex9">/vortex9</a>.</p>
+      <address class="statutory">
+        <p><strong>Mampi Technologies Ltd</strong></p>
+        <p>Co. No: 17484970</p>
+        <p>Registered in England and Wales</p>
+        <p>9 Lodge Hill Road, Ossett, WF5 9RU, United Kingdom</p>
+        <p><a href="tel:+447435935395">+44 7435 935395</a></p>
+        <p><a href="mailto:support@mampitech.com">support@mampitech.com</a></p>
+      </address>
+      <div class="statutory-links" role="navigation" aria-label="Legal">
+        <button type="button" class="legal-text" data-policy="terms">Terms of Service</button>
+        <button type="button" class="legal-text" data-policy="aup">Acceptable Use Policy</button>
+        <button type="button" class="legal-text" data-policy="privacy">Privacy Policy</button>
+      </div>
+      <p class="footer-copy">© 2026 Mampi Technologies Ltd. All rights reserved.</p>
+    </footer>
+  </div>
+  <div class="gate" id="gate" hidden>
+    <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-copy">
+      <p class="kicker">Gatekeeper</p>
+      <h2 id="gate-title">Terms and age confirmation</h2>
+      <p id="gate-copy">Confirm all three statements. I Agree &amp; Continue then opens the GitHub placeholder for the platform you chose.</p>
+      <p class="gate-docs">Read the <button type="button" class="legal-text" data-policy="terms">Terms of Service</button>, the <button type="button" class="legal-text" data-policy="aup">Acceptable Use Policy</button>, and the <button type="button" class="legal-text" data-policy="privacy">Privacy Policy</button> before you continue.</p>
+      <p id="gate-target" class="price"></p>
+      <label class="gate-check">
+        <input type="checkbox" id="gate-age">
+        <span>I confirm I am 18 or older.</span>
+      </label>
+      <label class="gate-check">
+        <input type="checkbox" id="gate-conduct">
+        <span>I agree to the Acceptable Use Policy. I will use Phreak9 only to defend devices, networks, and services I am allowed to defend.</span>
+      </label>
+      <label class="gate-check">
+        <input type="checkbox" id="gate-sovereign">
+        <span>I understand Phreak9 is a local defence tool. Scans and packet decisions stay on the device.</span>
+      </label>
+      <div class="gate-actions">
+        <button type="button" class="btn" id="gate-accept" disabled>I Agree &amp; Continue</button>
+        <button type="button" class="btn" id="gate-decline">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var gate = document.getElementById("gate");
+      var age = document.getElementById("gate-age");
+      var conduct = document.getElementById("gate-conduct");
+      var sovereign = document.getElementById("gate-sovereign");
+      var accept = document.getElementById("gate-accept");
+      var decline = document.getElementById("gate-decline");
+      var note = document.getElementById("download-note");
+      var target = document.getElementById("gate-target");
+      var buttons = Array.prototype.slice.call(document.querySelectorAll(".download-btn[data-file]"));
+      var slots = Array.prototype.slice.call(document.querySelectorAll(".download-slot"));
+      var pendingFile = "";
+
+      function agreed() {
+        return age.checked && conduct.checked && sovereign.checked;
+      }
+
+      function syncAccept() {
+        accept.disabled = !agreed();
+      }
+
+      function resetChecks() {
+        age.checked = false;
+        conduct.checked = false;
+        sovereign.checked = false;
+        syncAccept();
+      }
+
+      function openGate(button) {
+        pendingFile = button.getAttribute("data-file") || "";
+        target.textContent = pendingFile ? "Selected: " + button.textContent.trim() : "";
+        resetChecks();
+        gate.hidden = false;
+        age.focus();
+      }
+
+      function closeGate() {
+        gate.hidden = true;
+        pendingFile = "";
+      }
+
+      age.addEventListener("change", syncAccept);
+      conduct.addEventListener("change", syncAccept);
+      sovereign.addEventListener("change", syncAccept);
+      accept.addEventListener("click", function () {
+        if (!agreed() || !pendingFile) return;
+        var file = pendingFile;
+        closeGate();
+        note.textContent = "Opening " + file;
+        window.location.assign(file);
+      });
+      decline.addEventListener("click", function () {
+        resetChecks();
+        closeGate();
+        note.textContent = "Download cancelled. Choose a platform to open the gate again.";
+      });
+      gate.addEventListener("click", function (event) {
+        if (event.target === gate) decline.click();
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !gate.hidden) decline.click();
+      });
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          openGate(button);
+        });
+      });
+      slots.forEach(function (slot) {
+        slot.addEventListener("click", function () {
+          var platform = slot.getAttribute("data-platform") || "That platform";
+          note.textContent = platform + " is coming soon (pre-deployment). There is no installer to download yet.";
+        });
+      });
+      var payNote = document.getElementById("pay-note");
+      var params = new URLSearchParams(window.location.search);
+      if (payNote && params.get("checkout") === "cancelled") {
+        payNote.textContent = "Checkout was cancelled. No payment was taken. Community scanning stays free on this device.";
+      } else if (payNote && params.get("paid") === "1") {
+        payNote.textContent = "You returned from Stripe Checkout. Community scanning stays available on this device while that subscription is confirmed.";
+      }
+    })();
+  </script>
+  <script src="/public/legal-modal.js" defer></script>
+  <script src="/public/cookie-notice.js" defer></script>
+</body>
+</html>

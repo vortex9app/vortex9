@@ -1,0 +1,60 @@
+.statutory {
+  display: block;
+  width: min(40rem, 100%);
+  margin: 18px 0 0;
+  padding: 0;
+  color: #e8eaed;
+  font-size: 0.84rem;
+  font-style: normal;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.statutory p {
+  display: block;
+  margin: 0 0 4px;
+}
+.statutory strong,
+.statutory-name {
+  color: #ffffff;
+  font-weight: 700;
+}
+.statutory-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px 22px;
+  width: min(40rem, 100%);
+  margin: 16px 0 0;
+  padding: 14px 0 0;
+  border-top: 1px solid rgba(85, 107, 47, 0.4);
+}
+.statutory a,
+.statutory a:link,
+.statutory a:visited,
+.statutory-links a,
+.statutory-links a:link,
+.statutory-links a:visited {
+  color: #e4d0a0;
+  font-weight: 700;
+  text-decoration: none;
+}
+.statutory a:hover,
+.statutory a:focus-visible,
+.statutory-links a:hover,
+.statutory-links a:focus-visible {
+  color: #f6e7c1;
+  text-decoration: underline;
+  outline: none;
+}
+footer {
+  overflow-wrap: anywhere;
+}
+.footer-copy {
+  margin: 22px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  line-height: 1.55;
+}

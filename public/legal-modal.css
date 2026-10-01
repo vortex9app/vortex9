@@ -1,0 +1,189 @@
+.legal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: rgba(0, 0, 0, 0.82);
+}
+.legal-modal[hidden] { display: none; }
+.legal-modal-card {
+  display: flex;
+  flex-direction: column;
+  width: min(860px, 100%);
+  max-height: calc(100vh - 48px);
+  border: 1px solid rgba(85, 107, 47, 0.55);
+  border-radius: 22px;
+  background: #111111;
+  color: #e8eaed;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+.legal-modal-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 0;
+}
+.legal-modal-kicker {
+  margin: 0;
+  color: #c5d4a4;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.legal-modal-close {
+  min-height: 40px;
+  min-width: 88px;
+  padding: 0 18px;
+  border: 1px solid #e4d0a0;
+  border-radius: 999px;
+  background: #e4d0a0;
+  color: #111111;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.legal-modal-close:hover,
+.legal-modal-close:focus-visible {
+  background: #f6e7c1;
+  border-color: #f6e7c1;
+  color: #111111;
+  outline: none;
+}
+.legal-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px 20px 0;
+}
+.legal-tabs button {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid rgba(85, 107, 47, 0.45);
+  border-radius: 999px;
+  background: transparent;
+  color: #e8eaed;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.legal-tabs button[aria-selected="true"] {
+  border-color: #e4d0a0;
+  background: rgba(228, 208, 160, 0.12);
+  color: #e4d0a0;
+}
+.legal-tabs button:focus-visible {
+  outline: 2px solid #e4d0a0;
+  outline-offset: 2px;
+}
+.legal-modal-body {
+  overflow: auto;
+  margin: 16px 8px 8px;
+  padding: 4px 16px 22px;
+}
+.legal-modal-body h2 {
+  margin: 22px 0 8px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+.legal-modal-body h2:first-child { margin-top: 0; }
+.legal-modal-body p,
+.legal-modal-body li {
+  margin: 0 0 10px;
+  color: #e8eaed;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.legal-modal-body ul { margin: 0 0 12px; padding-left: 1.2rem; }
+.legal-modal-body .legal-updated {
+  color: #c5d4a4;
+  font-size: 0.82rem;
+}
+.legal-inline,
+.gate-docs button[data-legal] {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #e4d0a0;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal-inline:hover,
+.legal-inline:focus-visible,
+.gate-docs button[data-legal]:hover,
+.gate-docs button[data-legal]:focus-visible {
+  color: #f6e7c1;
+  outline: none;
+}
+button.legal-trigger {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  margin: 0;
+  padding: 0 14px;
+  border: 1px solid rgba(228, 208, 160, 0.55);
+  border-radius: 999px;
+  background: #111111;
+  color: #e4d0a0;
+  box-shadow: none;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+button.legal-trigger:hover,
+button.legal-trigger:focus-visible {
+  background: #1c1c1c;
+  border-color: #e4d0a0;
+  color: #f6e7c1;
+  outline: none;
+}
+button.legal-text {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #e4d0a0;
+  font: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.statutory-links button.legal-text,
+.cookie-notice button.legal-text {
+  color: inherit;
+}
+button.legal-text:hover,
+button.legal-text:focus-visible {
+  color: #f6e7c1;
+  outline: none;
+}
+@media (max-width: 640px) {
+  .legal-modal { padding: 10px; }
+  .legal-modal-card { max-height: calc(100vh - 20px); border-radius: 16px; }
+}

@@ -281,7 +281,7 @@ function buildSitemap() {
       lastmod: (ARTICLE_DATES[article.id] || '2026-08-09T09:00:00Z').slice(0, 10)
     });
   });
-  ['/library', '/academy', '/academy/foundations', '/academy/harmonic', '/academy/master', '/vortex9'].forEach((path) => {
+  ['/library', '/academy', '/academy/foundations', '/academy/harmonic', '/academy/master', '/vortex9', '/phreak9'].forEach((path) => {
     urls.push({ loc: `${SITE_URL}${path}`, changefreq: 'weekly', priority: '0.85' });
   });
   urls.push({ loc: `${SITE_URL}${FEED_PATH}`, changefreq: 'hourly', priority: '0.5' });

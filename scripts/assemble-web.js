@@ -8,6 +8,7 @@ const out = path.join(root, 'web');
 
 const FILES = [
   'index.html',
+  'favicon.ico',
   'config.js',
   'avatars.js',
   'supabase.js',
@@ -24,7 +25,7 @@ const FILES = [
   'robots.txt'
 ];
 
-const DIRS = ['public', 'vortex9', 'mampi'];
+const DIRS = ['public', 'vortex9', 'phreak9', 'mampi'];
 
 function copyFile(rel) {
   const from = path.join(root, rel);

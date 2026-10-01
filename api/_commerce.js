@@ -51,6 +51,18 @@ const PRODUCTS = {
     amount: '699.00',
     itemName: 'Vortex9 Sovereign Business Citadel Pack',
     itemNumber: 'vortex9_citadel'
+  },
+  phreak9_month: {
+    kind: 'phreak9_month',
+    amount: '4.44',
+    itemName: 'Phreak9 Pro monthly',
+    itemNumber: 'phreak9_month'
+  },
+  phreak9_year: {
+    kind: 'phreak9_year',
+    amount: '44.44',
+    itemName: 'Phreak9 Pro yearly',
+    itemNumber: 'phreak9_year'
   }
 };
 
@@ -158,7 +170,7 @@ function stripeKindFromSession(session) {
     ? session.parent.subscription_details.metadata || {}
     : {};
   const kind = meta.kind || parentMeta.kind || '';
-  if (kind === 'membership_solstice' || kind === 'membership_activator' || kind === 'vortex9_month' || kind === 'vortex9_year' || kind === 'vortex9_citadel') return kind;
+  if (kind === 'membership_solstice' || kind === 'membership_activator' || kind === 'vortex9_month' || kind === 'vortex9_year' || kind === 'vortex9_citadel' || kind === 'phreak9_month' || kind === 'phreak9_year') return kind;
   const link = String((session && (session.payment_link || session.payment_link_id)) || '');
   const linkId = link.split('/').pop();
   if (STRIPE_LINK_MAP[linkId]) return STRIPE_LINK_MAP[linkId];
@@ -167,6 +179,8 @@ function stripeKindFromSession(session) {
   if (amount === 800) return 'vortex9_month';
   if (amount === 7700) return 'vortex9_year';
   if (amount === 69900) return 'vortex9_citadel';
+  if (amount === 444) return 'phreak9_month';
+  if (amount === 4444) return 'phreak9_year';
   return '';
 }
 

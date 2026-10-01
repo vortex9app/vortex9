@@ -259,6 +259,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://mystic9.net/phreak9</loc>
+    
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://mystic9.net/feed.xml</loc>
     
     <changefreq>hourly</changefreq>

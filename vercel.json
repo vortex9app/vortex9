@@ -61,7 +61,8 @@
     { "source": "/update-password", "destination": "/index.html" },
     { "source": "/academy", "destination": "/index.html" },
     { "source": "/academy/:slug", "destination": "/index.html" },
-    { "source": "/vortex9", "destination": "/vortex9/index.html" }
+    { "source": "/vortex9", "destination": "/vortex9/index.html" },
+    { "source": "/phreak9", "destination": "/phreak9/index.html" }
   ],
   "crons": [
     {
