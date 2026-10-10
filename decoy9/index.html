@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="/public/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/public/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/public/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/public/assets/apple-touch-icon.png">
+  <title>Decoy9 | Encrypted notes on your device</title>
+  <meta name="description" content="Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development.">
+  <meta name="author" content="Mampi Technologies Ltd">
+  <meta name="copyright" content="© 2026 Mampi Technologies Ltd. All rights reserved.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mystic9.net/decoy9">
+  <meta property="og:site_name" content="mystic9.net">
+  <meta property="og:title" content="Decoy9 | Encrypted notes on your device">
+  <meta property="og:description" content="An encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mystic9.net/decoy9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/statutory.css">
+  <link rel="stylesheet" href="/public/cookie-notice.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Decoy9","applicationCategory":"CommunicationApplication","operatingSystem":"Windows, macOS, Linux, Android","url":"https://mystic9.net/decoy9","offers":[{"@type":"Offer","name":"Free Core","price":"0","priceCurrency":"GBP"},{"@type":"Offer","name":"Decoy9 Pro monthly","price":"3.33","priceCurrency":"GBP"},{"@type":"Offer","name":"Decoy9 Pro yearly","price":"33.30","priceCurrency":"GBP"}],"description":"An encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development. The Windows setup is the published desktop installer. Downloads require an 18+ conduct confirmation.","publisher":{"@type":"Organization","name":"Mampi Technologies Ltd","legalName":"Mampi Technologies Ltd","url":"https://mampitech.com","email":"support@mampitech.com","telephone":"+447435935395"}}
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: #000000; }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(85, 107, 47, 0.16), transparent 55%),
+        #000000;
+      color: #ffffff;
+      font-family: Inter, sans-serif;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.16;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='grain' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E");
+      background-size: 220px 220px;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1240px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 72px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      color: #e8eaed;
+      background: #161616;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+    }
+    .brand-mark svg { width: 16px; height: 16px; }
+    .top-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px 18px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .top-links a {
+      text-decoration: none;
+      color: #f4f4f5;
+      transition: color 180ms ease, box-shadow 180ms ease;
+    }
+    .top-links a:hover,
+    .top-links a:focus-visible {
+      color: #ffffff;
+      box-shadow: inset 0 -1px 0 #556B2F;
+      outline: none;
+    }
+    .pin {
+      position: relative;
+      background: rgba(22, 22, 22, 0.78);
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      border-radius: 22px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(240px, 380px) 1fr;
+      gap: 36px;
+      align-items: center;
+      padding: 36px 32px;
+      overflow: hidden;
+    }
+    .emblem-shell {
+      width: min(340px, 100%);
+      margin: 0 auto;
+      aspect-ratio: 1;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 50% 46%, rgba(85, 107, 47, 0.22), transparent 46%),
+        #161616;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 48px rgba(85, 107, 47, 0.16);
+    }
+    .emblem-shell::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 26px;
+      border: 1px solid rgba(85, 107, 47, 0.45);
+      pointer-events: none;
+    }
+    .emblem {
+      width: 78%;
+      height: 78%;
+      filter: drop-shadow(0 0 18px rgba(85, 107, 47, 0.45));
+    }
+    .kicker {
+      color: #e8eaed;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: clamp(2.05rem, 4.4vw, 3.55rem);
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .lead {
+      color: #e8eaed;
+      font-size: 1.05rem;
+      max-width: 40rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      font-family: inherit;
+      background: #161616;
+      color: #ffffff;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      cursor: pointer;
+      transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+    .btn:hover,
+    .btn:focus-visible {
+      background: rgba(85, 107, 47, 0.15);
+      border-color: #556B2F;
+      color: #ffffff;
+      outline: none;
+      box-shadow: 0 0 0 1px #556B2F, 0 0 16px rgba(85, 107, 47, 0.35);
+    }
+    section { margin-top: 22px; }
+    .card { padding: 28px 28px 26px; }
+    h2 {
+      font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .copy { color: #e8eaed; max-width: 68ch; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .feature {
+      min-width: 0;
+      padding: 18px 18px 16px;
+      border-radius: 16px;
+      background: rgba(22, 22, 22, 0.62);
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 24px rgba(85, 107, 47, 0.08);
+    }
+    .feature h3 {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      font-size: 1.02rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      overflow-wrap: break-word;
+    }
+    .feature p { color: #e8eaed; font-size: 0.92rem; }
+    .seal-icon {
+      width: 22px;
+      height: 22px;
+      margin-top: 1px;
+      color: #e8eaed;
+    }
+    .philosophy p + p { margin-top: 12px; }
+    .deploy {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      background: rgba(85, 107, 47, 0.12);
+      color: #e8eaed;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #556B2F;
+      box-shadow: 0 0 10px rgba(85, 107, 47, 0.85);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+    .interest {
+      display: grid;
+      gap: 10px;
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(10, 10, 10, 0.45);
+      border: 1px solid rgba(85, 107, 47, 0.55);
+    }
+    .interest p { color: #e8eaed; font-size: 0.88rem; }
+    .interest a[href^="tel:"] {
+      color: #e4d0a0;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .interest a[href^="tel:"]:hover,
+    .interest a[href^="tel:"]:focus-visible {
+      color: #f6e7c1;
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 28px;
+      color: #e8eaed;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+    footer p {
+      margin: 0 0 8px;
+      max-width: 78ch;
+      line-height: 1.45;
+      overflow-wrap: break-word;
+    }
+    .company-record {
+      display: inline-block;
+      margin: 10px 0;
+      padding: 10px 14px;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      border-radius: 12px;
+      background: #161616;
+      color: #e8eaed;
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+    .company-record a, .company-record a:link, .company-record a:visited,
+    footer a, footer a:link, footer a:visited {
+      color: #e4d0a0;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .company-record a:hover,
+    .company-record a:focus-visible,
+    footer a:hover,
+    footer a:focus-visible {
+      color: #f6e7c1;
+      text-decoration: underline;
+      outline: none;
+    }
+    html, body { background-color: #0a0a0a; color: #ffffff; }
+    :focus-visible { outline: 2px solid #556B2F; outline-offset: 2px; }
+    ::selection { background: #556B2F; color: #ffffff; }
+    .download-grid, .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .tier {
+      padding: 20px 18px;
+      border-radius: 16px;
+      background: rgba(10, 10, 10, 0.45);
+      border: 1px solid rgba(85, 107, 47, 0.55);
+    }
+    .tier h3 { font-size: 1.2rem; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .price {
+      color: #e4d0a0;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+    .tier ul { margin: 0; padding-left: 1.1rem; color: #e8eaed; }
+    .tier li + li { margin-top: 8px; }
+    .download-note {
+      margin-top: 14px;
+      color: #e4d0a0;
+      min-height: 1.4em;
+    }
+    .download-slot { display: flex; min-width: 0; }
+    .download-btn,
+    .download-btn:hover,
+    .download-btn:focus-visible {
+      cursor: pointer;
+      opacity: 1;
+    }
+    .download-btn.download-soon,
+    .download-btn.download-soon:hover,
+    .download-btn.download-soon:focus-visible,
+    .pay-btn.download-soon,
+    .pay-btn.download-soon:hover,
+    .pay-btn.download-soon:focus-visible {
+      width: 100%;
+      flex-direction: column;
+      gap: 6px;
+      cursor: not-allowed;
+      opacity: 0.62;
+      pointer-events: none;
+    }
+    .soon-badge {
+      color: #e4d0a0;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hash-details {
+      margin-top: 14px;
+      padding: 10px 14px;
+      border: 1px solid rgba(85, 107, 47, 0.4);
+      border-radius: 12px;
+      background: rgba(10, 10, 10, 0.45);
+    }
+    .hash-details summary {
+      cursor: pointer;
+      color: #e4d0a0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .hash-details code {
+      display: block;
+      margin-top: 8px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #0a0a0a;
+      border: 1px solid rgba(85, 107, 47, 0.35);
+      color: #e8eaed;
+      font-family: ui-monospace, Consolas, monospace;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      letter-spacing: 0.03em;
+      word-break: break-all;
+    }
+    .hash-file {
+      margin-top: 12px;
+      color: #e8eaed;
+      font-size: 0.82rem;
+    }
+    .pay-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    #gate-accept:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+    .gate {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.72);
+    }
+    .gate[hidden] { display: none; }
+    .gate-card {
+      width: min(560px, 100%);
+      padding: 24px 22px;
+      border-radius: 22px;
+      background: #161616;
+      border: 1px solid rgba(85, 107, 47, 0.55);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+    }
+    .gate-card h2 { font-size: 1.45rem; }
+    .gate-card p { color: #e8eaed; margin-bottom: 14px; }
+    .gate-docs a { color: #e4d0a0; font-weight: 700; }
+    .gate-docs a:hover,
+    .gate-docs a:focus-visible { color: #f6e7c1; }
+    .gate-check {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 12px 0;
+      color: #e8eaed;
+    }
+    .gate-check input { margin-top: 4px; accent-color: #556B2F; }
+    .gate-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    @media (max-width: 1100px) {
+      .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 800px) {
+      .page { width: min(1240px, calc(100% - 28px)); }
+      .hero, .feature-grid, .deploy, .download-grid, .tier-grid { grid-template-columns: 1fr; }
+      .top-links { justify-content: flex-start; width: 100%; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .hero, .card { padding: 22px 18px; }
+      .btn { max-width: 100%; box-sizing: border-box; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .status-dot { animation: none; }
+      .emblem { filter: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="page">
+    <header class="topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 8h10a4 4 0 0 1 0 8H9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M19 16H9a4 4 0 0 1 0-8h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        Decoy9
+      </a>
+      <nav class="top-links" aria-label="Decoy9">
+        <a href="#downloads">Downloads</a>
+        <a href="#tiers">Tiers</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="/phreak9">Phreak9</a>
+        <a href="/vortex9">Vortex9</a>
+        <a href="/aura9">Aura9</a>
+        <a href="https://mampitech.com" target="_blank" rel="noopener noreferrer">Mampi Technologies</a>
+        <a href="https://mystic9.net">mystic9.net</a>
+      </nav>
+    </header>
+
+    <section class="pin hero" id="top">
+      <div class="emblem-shell" role="img" aria-label="Decoy9 encrypted vault">
+        <svg class="emblem" viewBox="0 0 200 200" aria-hidden="true">
+          <defs>
+            <radialGradient id="decoy-core" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#556B2F" stop-opacity="0.45"/>
+              <stop offset="72%" stop-color="#556B2F" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="100" cy="100" r="78" fill="url(#decoy-core)"/>
+          <circle cx="58" cy="100" r="28" fill="none" stroke="#556B2F" stroke-width="1.6"/>
+          <circle cx="142" cy="100" r="28" fill="none" stroke="#556B2F" stroke-width="1.6"/>
+          <path d="M86 100h28" fill="none" stroke="#c5d4a4" stroke-width="1.4" stroke-linecap="round"/>
+          <rect x="90" y="88" width="20" height="16" rx="3" fill="#161616" stroke="#e4d0a0" stroke-width="1.2"/>
+          <path d="M94 88v-3a6 6 0 0 1 12 0v3" fill="none" stroke="#e4d0a0" stroke-width="1.2"/>
+          <circle cx="58" cy="100" r="6" fill="none" stroke="#e4d0a0" stroke-width="1"/>
+          <circle cx="142" cy="100" r="6" fill="none" stroke="#e4d0a0" stroke-width="1"/>
+          <circle cx="100" cy="36" r="2" fill="#556B2F"/>
+          <circle cx="100" cy="164" r="2" fill="#556B2F"/>
+        </svg>
+      </div>
+      <div>
+        <p class="kicker">Encrypted notes</p>
+        <h1>Decoy9 | Encrypted notes on your device</h1>
+        <p class="lead">Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development. Zero-Footprint Mode: optional self-deleting local state, wipe-on-close protection, and zero telemetry.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#downloads">Download Decoy9</a>
+          <a class="btn" href="#tiers">Sovereign Freemium</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="pin card">
+        <p class="kicker">Core capabilities</p>
+        <h2>Private notes, held on your device.</h2>
+        <p class="copy">Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Identity is a local key. An unknown public key waits in a pending list on this device. A link in a saved note stays hidden until you choose to look. This page does not phone home. Peer-to-peer messaging is in development.</p>
+        <div class="feature-grid">
+          <article class="feature">
+            <h3><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 19c1.2-3 3.2-4.5 6-4.5s4.8 1.5 6 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Cryptographic identity</h3>
+            <p>Identity is a key the person holds, not a phone number handed to a directory. No telephone number is required.</p>
+          </article>
+          <article class="feature">
+            <h3><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h8a3 3 0 0 1 0 6H8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M19 16H11a3 3 0 0 1 0-6h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>No network in this build</h3>
+            <p>This build does not connect to another person and does not use a relay. Peer-to-peer messaging is in development.</p>
+          </article>
+          <article class="feature">
+            <h3><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Encrypted on this device</h3>
+            <p>Notes are sealed on the device before they are saved. The company has no copy and cannot read them. Sealing a note to another person is in development.</p>
+          </article>
+          <article class="feature">
+            <h3><svg class="seal-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 10h8M8 14h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Local-first storage</h3>
+            <p>Records stay encrypted on the device. They are not harvested into a profile, and they are not sold.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <div class="pin card philosophy">
+        <p class="kicker">Conscious development</p>
+        <h2>Notes stay where you wrote them.</h2>
+        <p class="copy">Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. No phone number is required. The record does not leave the device to feed a profile. Peer-to-peer messaging is in development.</p>
+        <p class="copy">The same standard of integrity Mampi Technologies Ltd holds for Mystic9, Vortex9, and Aura9 governs this client. Honour the person's attention. Defend the note. Leave the device intact. Zero telemetry is the product standard, including while the client is still in deployment.</p>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="pin card">
+        <p class="kicker">Downloads</p>
+        <h2>Install Decoy9 on your own device.</h2>
+        <p class="copy">The Windows setup opens the age and conduct gate. The file starts only after I Agree &amp; Download. The app archive and each Android ABI package link straight to the GitHub release. The Windows MSI, macOS, and Linux packages are still in pre-deployment. Pro is coming soon and does not download an installer.</p>
+        <div class="download-grid">
+          <a class="btn download-btn" href="https://github.com/vortex9app/vortex9/releases/download/2026-10-02/Decoy9_0.1.0_x64-setup.zip" data-file="https://github.com/vortex9app/vortex9/releases/download/2026-10-02/Decoy9_0.1.0_x64-setup.zip">Windows setup (.zip)</a>
+          <a class="btn download-btn" href="https://github.com/vortex9app/vortex9/releases/download/2026-10-02/decoy9.zip" target="_blank" rel="noopener noreferrer">decoy9.zip</a>
+          <div class="download-slot" data-platform="Windows MSI" title="Coming Soon (Pre-Deployment)">
+            <button type="button" class="btn download-btn download-soon" disabled>
+              <span>Windows package (.msi)</span>
+              <span class="soon-badge">Coming Soon (Pre-Deployment)</span>
+            </button>
+          </div>
+          <div class="download-slot" data-platform="macOS" title="Coming Soon (Pre-Deployment)">
+            <button type="button" class="btn download-btn download-soon" disabled>
+              <span>macOS (.dmg)</span>
+              <span class="soon-badge">Coming Soon (Pre-Deployment)</span>
+            </button>
+          </div>
+          <div class="download-slot" data-platform="Linux AppImage" title="Coming Soon (Pre-Deployment)">
+            <button type="button" class="btn download-btn download-soon" disabled>
+              <span>Linux (.AppImage)</span>
+              <span class="soon-badge">Coming Soon (Pre-Deployment)</span>
+            </button>
+          </div>
+          <div class="download-slot" data-platform="Linux deb" title="Coming Soon (Pre-Deployment)">
+            <button type="button" class="btn download-btn download-soon" disabled>
+              <span>Linux (.deb)</span>
+              <span class="soon-badge">Coming Soon (Pre-Deployment)</span>
+            </button>
+          </div>
+          <a class="btn download-btn" href="https://github.com/vortex9app/vortex9/releases/download/2026-10-02/Decoy9-arm64-release.apk" target="_blank" rel="noopener noreferrer">Android arm64 (.apk)</a>
+          <a class="btn download-btn" href="https://github.com/vortex9app/vortex9/releases/download/2026-10-02/Decoy9-arm-release.apk" target="_blank" rel="noopener noreferrer">Android arm (.apk)</a>
+          <a class="btn download-btn" href="https://github.com/vortex9app/vortex9/releases/download/2026-10-02/Decoy9-x86_64-release.apk" target="_blank" rel="noopener noreferrer">Android x86_64 (.apk)</a>
+          <a class="btn download-btn" href="https://github.com/vortex9app/vortex9/releases/download/2026-10-02/Decoy9-x86-release.apk" target="_blank" rel="noopener noreferrer">Android x86 (.apk)</a>
+          <a class="btn download-btn" href="https://github.com/vortex9app/vortex9/releases/download/2026-10-02/Decoy9-universal-release.apk" target="_blank" rel="noopener noreferrer">Android universal (.apk)</a>
+        </div>
+        <details class="hash-details">
+          <summary>Verify File Integrity (SHA-256)</summary>
+          <p class="hash-file">Decoy9_0.1.0_x64-setup.exe</p>
+          <code>99181c8a664f4fdcf5b7003b7842f86cad1c4684cfb9d5c79e7f823f1da128dd</code>
+          <p>This site does not host the installer. The digest above is the SHA-256 GitHub publishes for the D1.0.0 Windows setup.</p>
+        </details>
+        <p class="download-note" id="download-note" role="status">The Windows setup opens the age and terms gate. decoy9.zip and each Android ABI package open the GitHub release asset directly. The Windows MSI, macOS, and Linux stay in pre-deployment. Pro is marked Coming soon below.</p>
+      </div>
+    </section>
+
+    <section id="tiers">
+      <div class="pin card">
+        <p class="kicker">Sovereign Freemium</p>
+        <h2>The core vault is free. Pro is coming soon.</h2>
+        <p class="copy">The core vault is free. The Windows installer on this page is that free core. It does not require a subscription, and it does not upload a vault.</p>
+        <div class="tier-grid">
+          <article class="tier">
+            <h3>Free Core</h3>
+            <p class="price">£0</p>
+            <ul>
+              <li>Local identity and encrypted vault on this device</li>
+              <li>Peer-to-peer messaging is in development</li>
+              <li>Pending requests, link isolation, and local send limits</li>
+              <li>Zero-Footprint Mode: optional self-deleting local state, wipe-on-close protection, and zero telemetry</li>
+            </ul>
+          </article>
+          <article class="tier">
+            <h3>Decoy9 Pro</h3>
+            <p class="price">Coming soon</p>
+            <ul>
+              <li>Calculator camouflage mode</li>
+              <li>A second local copy of notes on the same device</li>
+            </ul>
+            <div class="pay-actions">
+              <button type="button" class="btn pay-btn download-soon" disabled data-stripe-link="https://buy.stripe.com/aFa7sK81qdcC34z7SA8AE08">
+                <span>Pro monthly</span>
+                <span class="soon-badge">Coming soon</span>
+              </button>
+              <button type="button" class="btn pay-btn download-soon" disabled data-stripe-link="https://buy.stripe.com/8x2eVc6Xm8WmcF9c8Q8AE09">
+                <span>Pro yearly</span>
+                <span class="soon-badge">Coming soon</span>
+              </button>
+            </div>
+          </article>
+        </div>
+        <p class="copy" id="pay-note" style="margin-top:16px">Pro is coming soon. It does not download an installer. The core vault is free. Paste the license key from the receipt into Decoy9 settings.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Decoy9 is a mystic9.net instrument. It is owned and operated by <a href="https://mampitech.com" target="_blank" rel="noopener noreferrer">Mampi Technologies Ltd</a>. The sanctuary remains at mystic9.net. Vortex9 remains the published defence node at <a href="/vortex9">/vortex9</a>. Aura9 remains at <a href="/aura9">/aura9</a>.</p>
+      <address class="statutory">
+        <p><strong>Mampi Technologies Ltd</strong></p>
+        <p>Co. No: 17484970</p>
+        <p>Registered in England and Wales</p>
+        <p>9 Lodge Hill Road, Ossett, WF5 9RU, United Kingdom</p>
+        <p><a href="tel:+447435935395">+44 7435 935395</a></p>
+        <p><a href="mailto:support@mampitech.com">support@mampitech.com</a></p>
+      </address>
+      <div class="statutory-links" role="navigation" aria-label="Legal">
+        <button type="button" class="legal-text" data-policy="privacy" style="appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;color:inherit;text-decoration:underline;text-underline-offset:2px;border:none;padding:0;margin:0;font:inherit;font-weight:600;line-height:inherit;box-shadow:none;">Privacy Policy</button>
+        <button type="button" class="legal-text" data-policy="terms" style="appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;color:inherit;text-decoration:underline;text-underline-offset:2px;border:none;padding:0;margin:0;font:inherit;font-weight:600;line-height:inherit;box-shadow:none;">Terms of Service</button>
+        <button type="button" class="legal-text" data-policy="aup" style="appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;color:inherit;text-decoration:underline;text-underline-offset:2px;border:none;padding:0;margin:0;font:inherit;font-weight:600;line-height:inherit;box-shadow:none;">Acceptable Use Policy</button>
+      </div>
+      <p class="footer-copy">© 2026 Mampi Technologies Ltd. All rights reserved.</p>
+    </footer>
+  </div>
+  <div class="gate" id="gate" hidden>
+    <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gate-title" aria-describedby="gate-copy">
+      <p class="kicker">Gatekeeper</p>
+      <h2 id="gate-title">Terms and age confirmation</h2>
+      <p id="gate-copy">Confirm all three statements. I Agree &amp; Download then starts the platform you chose.</p>
+      <p class="gate-docs">Read the <button type="button" class="legal-text" data-policy="terms" style="appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;color:#e4d0a0;text-decoration:underline;text-underline-offset:2px;border:none;padding:0;margin:0;font:inherit;font-weight:700;line-height:inherit;box-shadow:none;">Terms of Service</button>, the <button type="button" class="legal-text" data-policy="aup" style="appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;color:#e4d0a0;text-decoration:underline;text-underline-offset:2px;border:none;padding:0;margin:0;font:inherit;font-weight:700;line-height:inherit;box-shadow:none;">Acceptable Use Policy</button>, and the <button type="button" class="legal-text" data-policy="privacy" style="appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;color:#e4d0a0;text-decoration:underline;text-underline-offset:2px;border:none;padding:0;margin:0;font:inherit;font-weight:700;line-height:inherit;box-shadow:none;">Privacy Policy</button> before you download.</p>
+      <p id="gate-target" class="price"></p>
+      <label class="gate-check">
+        <input type="checkbox" id="gate-age">
+        <span>I confirm I am 18 or older.</span>
+      </label>
+      <label class="gate-check">
+        <input type="checkbox" id="gate-conduct">
+        <span>I agree to the Acceptable Use Policy, including its zero-tolerance rule against illegal acts, harassment, grooming, and harm to minors.</span>
+      </label>
+      <label class="gate-check">
+        <input type="checkbox" id="gate-sovereign">
+        <span>I understand Decoy9 is an encrypted vault for private notes. Everything stays on this device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development.</span>
+      </label>
+      <div class="gate-actions">
+        <button type="button" class="btn" id="gate-accept" disabled>I Agree &amp; Download</button>
+        <button type="button" class="btn" id="gate-decline">Cancel</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var gate = document.getElementById("gate");
+      var age = document.getElementById("gate-age");
+      var conduct = document.getElementById("gate-conduct");
+      var sovereign = document.getElementById("gate-sovereign");
+      var accept = document.getElementById("gate-accept");
+      var decline = document.getElementById("gate-decline");
+      var note = document.getElementById("download-note");
+      var target = document.getElementById("gate-target");
+      var buttons = Array.prototype.slice.call(document.querySelectorAll(".download-btn[data-file]"));
+      var slots = Array.prototype.slice.call(document.querySelectorAll(".download-slot"));
+      var pendingFile = "";
+
+      function agreed() {
+        return age.checked && conduct.checked && sovereign.checked;
+      }
+
+      function syncAccept() {
+        accept.disabled = !agreed();
+      }
+
+      function resetChecks() {
+        age.checked = false;
+        conduct.checked = false;
+        sovereign.checked = false;
+        syncAccept();
+      }
+
+      function openGate(button) {
+        pendingFile = button.getAttribute("data-file") || "";
+        target.textContent = pendingFile ? "Selected: " + button.textContent.trim() : "";
+        resetChecks();
+        gate.hidden = false;
+        age.focus();
+      }
+
+      function closeGate() {
+        gate.hidden = true;
+        pendingFile = "";
+      }
+
+      age.addEventListener("change", syncAccept);
+      conduct.addEventListener("change", syncAccept);
+      sovereign.addEventListener("change", syncAccept);
+      accept.addEventListener("click", function () {
+        if (!agreed() || !pendingFile) return;
+        var file = pendingFile;
+        closeGate();
+        note.textContent = "Starting " + file;
+        window.location.assign(file);
+      });
+      decline.addEventListener("click", function () {
+        resetChecks();
+        closeGate();
+        note.textContent = "Download cancelled. Choose a platform to open the gate again.";
+      });
+      gate.addEventListener("click", function (event) {
+        if (event.target === gate) decline.click();
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && !gate.hidden) decline.click();
+      });
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+          openGate(button);
+        });
+      });
+      slots.forEach(function (slot) {
+        slot.addEventListener("click", function () {
+          var platform = slot.getAttribute("data-platform") || "That platform";
+          note.textContent = platform + " is coming soon (pre-deployment). There is no installer to download yet.";
+        });
+      });
+      var payNote = document.getElementById("pay-note");
+      var params = new URLSearchParams(window.location.search);
+      if (payNote && params.get("checkout") === "cancelled") {
+        payNote.textContent = "Checkout was cancelled. No payment was taken. The core vault is free on this device.";
+      } else if (payNote && params.get("paid") === "1") {
+        payNote.textContent = "You returned from Stripe Checkout. The core vault is free on this device while that subscription is confirmed.";
+      }
+    })();
+  </script>
+  <script id="mampi-legal-modal">
+window.__MAMPI_LEGAL_CSS = ".legal-modal {\r\n  position: fixed;\r\n  inset: 0;\r\n  z-index: 200;\r\n  display: grid;\r\n  place-items: center;\r\n  padding: 24px 16px;\r\n  background: rgba(0, 0, 0, 0.82);\r\n}\r\n.legal-modal[hidden] { display: none; }\r\n.legal-modal-card {\r\n  display: flex;\r\n  flex-direction: column;\r\n  width: min(860px, 100%);\r\n  max-height: calc(100vh - 48px);\r\n  border: 1px solid rgba(85, 107, 47, 0.55);\r\n  border-radius: 22px;\r\n  background: #111111;\r\n  color: #e8eaed;\r\n  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);\r\n  font-family: Inter, ui-sans-serif, system-ui, sans-serif;\r\n}\r\n.legal-modal-bar {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: space-between;\r\n  gap: 16px;\r\n  padding: 18px 20px 0;\r\n}\r\n.legal-modal-kicker {\r\n  margin: 0;\r\n  color: #c5d4a4;\r\n  font-size: 0.72rem;\r\n  font-weight: 700;\r\n  letter-spacing: 0.14em;\r\n  text-transform: uppercase;\r\n}\r\n.legal-modal-close {\r\n  min-height: 40px;\r\n  min-width: 88px;\r\n  padding: 0 18px;\r\n  border: 1px solid #e4d0a0;\r\n  border-radius: 999px;\r\n  background: #e4d0a0;\r\n  color: #111111;\r\n  font: inherit;\r\n  font-size: 0.84rem;\r\n  font-weight: 700;\r\n  letter-spacing: 0.04em;\r\n  cursor: pointer;\r\n}\r\n.legal-modal-close:hover,\r\n.legal-modal-close:focus-visible {\r\n  background: #f6e7c1;\r\n  border-color: #f6e7c1;\r\n  color: #111111;\r\n  outline: none;\r\n}\r\n.legal-tabs {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  gap: 8px;\r\n  padding: 16px 20px 0;\r\n}\r\n.legal-tabs button {\r\n  min-height: 36px;\r\n  padding: 0 14px;\r\n  border: 1px solid rgba(85, 107, 47, 0.45);\r\n  border-radius: 999px;\r\n  background: transparent;\r\n  color: #e8eaed;\r\n  font: inherit;\r\n  font-size: 0.84rem;\r\n  font-weight: 700;\r\n  cursor: pointer;\r\n}\r\n.legal-tabs button[aria-selected=\"true\"] {\r\n  border-color: #e4d0a0;\r\n  background: rgba(228, 208, 160, 0.12);\r\n  color: #e4d0a0;\r\n}\r\n.legal-tabs button:focus-visible {\r\n  outline: 2px solid #e4d0a0;\r\n  outline-offset: 2px;\r\n}\r\n.legal-modal-body {\r\n  overflow: auto;\r\n  margin: 16px 8px 8px;\r\n  padding: 4px 16px 22px;\r\n}\r\n.legal-modal-body h2 {\r\n  margin: 22px 0 8px;\r\n  color: #ffffff;\r\n  font-size: 1.05rem;\r\n  line-height: 1.35;\r\n}\r\n.legal-modal-body h2:first-child { margin-top: 0; }\r\n.legal-modal-body p,\r\n.legal-modal-body li {\r\n  margin: 0 0 10px;\r\n  color: #e8eaed;\r\n  font-size: 0.95rem;\r\n  line-height: 1.6;\r\n}\r\n.legal-modal-body ul { margin: 0 0 12px; padding-left: 1.2rem; }\r\n.legal-modal-body .legal-updated {\r\n  color: #c5d4a4;\r\n  font-size: 0.82rem;\r\n}\r\n.legal-inline,\r\n.gate-docs button[data-legal] {\r\n  display: inline;\r\n  padding: 0;\r\n  border: 0;\r\n  background: none;\r\n  color: #e4d0a0;\r\n  font: inherit;\r\n  font-weight: 700;\r\n  cursor: pointer;\r\n  text-decoration: underline;\r\n  text-underline-offset: 2px;\r\n}\r\n.legal-inline:hover,\r\n.legal-inline:focus-visible,\r\n.gate-docs button[data-legal]:hover,\r\n.gate-docs button[data-legal]:focus-visible {\r\n  color: #f6e7c1;\r\n  outline: none;\r\n}\r\nbutton.legal-trigger {\r\n  -webkit-appearance: none;\r\n  appearance: none;\r\n  display: inline-flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  min-height: 36px;\r\n  margin: 0;\r\n  padding: 0 14px;\r\n  border: 1px solid rgba(228, 208, 160, 0.55);\r\n  border-radius: 999px;\r\n  background: #111111;\r\n  color: #e4d0a0;\r\n  box-shadow: none;\r\n  font-family: Inter, ui-sans-serif, system-ui, sans-serif;\r\n  font-size: 0.78rem;\r\n  font-weight: 700;\r\n  letter-spacing: 0.04em;\r\n  line-height: 1;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  cursor: pointer;\r\n}\r\nbutton.legal-trigger:hover,\r\nbutton.legal-trigger:focus-visible {\r\n  background: #1c1c1c;\r\n  border-color: #e4d0a0;\r\n  color: #f6e7c1;\r\n  outline: none;\r\n}\r\nbutton.legal-text {\r\n  -webkit-appearance: none;\r\n  appearance: none;\r\n  display: inline;\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  background: transparent;\r\n  box-shadow: none;\r\n  color: #e4d0a0;\r\n  font: inherit;\r\n  font-weight: 700;\r\n  line-height: inherit;\r\n  text-decoration: underline;\r\n  text-underline-offset: 2px;\r\n  cursor: pointer;\r\n}\r\n.statutory-links button.legal-text,\r\n.cookie-notice button.legal-text {\r\n  color: inherit;\r\n}\r\nbutton.legal-text:hover,\r\nbutton.legal-text:focus-visible {\r\n  color: #f6e7c1;\r\n  outline: none;\r\n}\r\n@media (max-width: 640px) {\r\n  .legal-modal { padding: 10px; }\r\n  .legal-modal-card { max-height: calc(100vh - 20px); border-radius: 16px; }\r\n}\r\n";
+(function () {
+  var activePolicy = null;
+  var style = document.createElement("style");
+  style.textContent = document.getElementById("mampi-legal-css") ? "" : window.__MAMPI_LEGAL_CSS || "";
+  if (window.__MAMPI_LEGAL_CSS) {
+    style.textContent = window.__MAMPI_LEGAL_CSS;
+    document.head.appendChild(style);
+  }
+  var DOCS = {
+    terms: {
+      title: "Terms of Service",
+      html:
+        '<p class="legal-updated">Mampi Technologies Ltd · 10 October 2026</p>' +
+        '<p>These Terms of Service are the end user licence between you and Mampi Technologies Ltd, company number 17484970, registered in England and Wales, with its registered office at 9 Lodge Hill Road, Ossett, WF5 9RU, United Kingdom. They cover Decoy9, Vortex9, and, when it is released, Aura9. Installing or running the software means you accept this licence and the <button type="button" data-policy="aup" class="legal-text">Acceptable Use Policy</button>.</p>' +
+        '<h2>Licence</h2>' +
+        '<p>The company grants you a personal, non-exclusive, non-transferable licence to install and run the software on devices you control, for the tier you are entitled to use. A paid term applies only to the account that completed checkout, and only while that term is active. The software is licensed, not sold. The company keeps all intellectual property in the program, its name, and its design.</p>' +
+        '<h2>What you may not do</h2>' +
+        '<p>You may not copy the software for distribution, rent it, sell it, or share a paid unlock with another person. You may not reverse engineer, decompile, or disassemble the software, except for the narrow right UK law gives to decompile for interoperability where that right cannot be waived. You may not remove a copyright or licence notice, or present a modified copy as an official build.</p>' +
+        '<h2>As-is and as-available software</h2>' +
+        '<p>The software is provided “as is” and “as available”. To the maximum extent permitted by the law of England and Wales, and by any other law that applies and cannot be disapplied, the company excludes all warranties, conditions, and representations, whether express, implied, or statutory. That includes any warranty of merchantability, satisfactory quality, fitness for a particular purpose, title, quiet enjoyment, accuracy, and non-infringement, and any warranty that the software will be uninterrupted, timely, secure, or error-free.</p>' +
+        '<p>Decoy9 does not promise that a peer will be reachable, that a message will be delivered, or that a device, operating system, or network outside the client will behave. The Windows setup is the published desktop installer. Windows MSI, macOS, and Android remain in pre-deployment until a download is offered without a “Coming Soon” label. A description of a platform is not a promise that an installer exists today. Aura9 is not yet released.</p>' +
+        '<h2>You are responsible for notes on your device</h2>' +
+        '<p>Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development. The company is not a party to a note, does not hold note contents, and cannot read them. You are solely responsible for every note or transmission you create, send, receive, store, forward, or delete, including its lawfulness, its accuracy, and any person you choose to accept. You are solely responsible for safeguarding the device, the local identity, and any copy of the vault. The company is not responsible for a note that you sealed, for a key you accepted, or for the company’s inability to recover or inspect what stays on your device.</p>' +
+        '<h2>Limitation of liability</h2>' +
+        '<p>To the maximum extent permitted under the law of England and Wales and under international law, the company and its directors, officers, and contractors are not liable for any loss or damage arising out of the software or these terms. That exclusion covers direct, indirect, incidental, special, consequential, exemplary, and punitive loss, loss of profit, revenue, goodwill, data, messages, or privacy, business interruption, the cost of substitute software, and any loss caused by a third party, a network, a device, or an encrypted transmission, whether the claim is in contract, tort (including negligence), breach of statutory duty, or otherwise, and whether or not the company was advised that the loss was possible.</p>' +
+        '<p>Nothing in these terms limits or excludes liability for death or personal injury caused by negligence, for fraud or fraudulent misrepresentation, or for any other liability that the law of England and Wales, or a mandatory rule of another country that applies to you, does not allow a contract to exclude or limit. Where a liability cannot be excluded, it is limited to the smallest amount the law allows.</p>' +
+        '<p>Subject to the previous paragraph, the company’s total aggregate liability arising out of the software and these terms, whether in one claim or in a series of claims, is limited to the amount you paid the company for that software during the twelve months before the claim arose. If you paid nothing, that cap is zero. Decoy9 Pro fees paid to Stripe count as amounts paid for the software. The free core, for which the price is zero, remains inside the zero cap.</p>' +
+        '<h2>Privacy of the software</h2>' +
+        '<p>The <button type="button" data-policy="privacy" class="legal-text">Privacy Policy</button> describes the data the company handles. Decoy9 does not send server-side telemetry. The vault stays encrypted on the device. Card payments are taken by Stripe, not by the client.</p>' +
+        '<h2>Ending the licence</h2>' +
+        '<p>You may stop using the software and remove it at any time. The company may end this licence if you break it. When it ends, you will stop using the software and delete the copies you hold. Sections on intellectual property, liability, and governing law continue to apply.</p>' +
+        '<h2>Law</h2>' +
+        '<p>This licence is governed by the law of England and Wales. Questions about it go to <a href="mailto:support@mampitech.com">support@mampitech.com</a>.</p>'
+    },
+    aup: {
+      title: "Acceptable Use Policy",
+      html:
+        '<p class="legal-updated">Mampi Technologies Ltd · 10 October 2026</p>' +
+        '<p>This Acceptable Use Policy is part of the <button type="button" data-policy="terms" class="legal-text">Terms of Service</button> for Decoy9. It binds every person who downloads, installs, or runs the client. Decoy9 is published by Mampi Technologies Ltd, company number 17484970, registered in England and Wales, at 9 Lodge Hill Road, Ossett, WF5 9RU, United Kingdom.</p>' +
+        '<h2>Who may use Decoy9</h2>' +
+        '<p>You must be 18 or older. The website asks you to confirm that age before the Windows download. The app itself has no age screen. You will not create a peer relationship with a child, and you will not use Decoy9 to contact a minor.</p>' +
+        '<h2>Zero tolerance</h2>' +
+        '<p>The following are forbidden. A single act is enough. There is no warning tier for them.</p>' +
+        '<ul>' +
+        '<li>Any illegal act, including fraud, extortion, trafficking, and the distribution of illegal material.</li>' +
+        '<li>Harassment, threats, stalking, hate-based abuse, or coercion of another person.</li>' +
+        '<li>Grooming, sexual exploitation, or any harm to a minor, including an attempt, a request, or the sharing of sexual material involving a child.</li>' +
+        '<li>Malware, credential theft, or any use of the channel to break into a system you do not control.</li>' +
+        '</ul>' +
+        '<p>If you see conduct of that kind, stop the peer on your device and write to <a href="mailto:support@mampitech.com">support@mampitech.com</a>. Where the law requires a report to the police or another authority, make that report. The company will co-operate with a lawful request that it is actually able to answer.</p>' +
+        '<h2>On-device controls</h2>' +
+        '<p>Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development. This build has no message path and does not scan note contents. Safety controls run on the device.</p>' +
+        '<ul>' +
+        '<li>An unknown public key waits in Pending Requests. Until you accept it, inbound text, links, and media from that key are not shown.</li>' +
+        '<li>Decline blocks that key on this device.</li>' +
+        '<li>After you accept a peer, remote addresses in their messages stay replaced with a held-link mark until you choose to inspect them. The client does not open the address for you.</li>' +
+        '<li>Those decisions stay on the device. They are not uploaded into a moderation queue.</li>' +
+        '</ul>' +
+        '<p>The company cannot read the vault in order to police it, because the notes stay encrypted on the device and are not sent to the company. You are the person who accepts a key, and you are the person who must refuse one.</p>' +
+        '<h2>What you store</h2>' +
+        '<p>You alone choose what you seal on this device. You will not use Decoy9 to infringe another person’s rights, to impersonate Mampi Technologies Ltd, or to interfere with the client. The Terms of Service state that you are responsible for every note you store on the device.</p>' +
+        '<h2>If this policy is broken</h2>' +
+        '<p>The company may refuse support, end the licence, and, where a payment record exists, ask Stripe to close the related subscription. The company may also keep the limited account data the <button type="button" data-policy="privacy" class="legal-text">Privacy Policy</button> describes where the law requires it. Ending the licence does not require the company to have read your notes.</p>'
+    },
+    privacy: {
+      title: "Privacy Policy",
+      html:
+        '<p class="legal-updated">Mampi Technologies Ltd · 10 October 2026</p>' +
+        '<p>Mampi Technologies Ltd (company number 17484970), registered in England and Wales, is the data controller for mampitech.com, mystic9.net, Vortex9, Aura9, and Decoy9. The registered office is 9 Lodge Hill Road, Ossett, WF5 9RU, United Kingdom. Privacy requests go to <a href="mailto:support@mampitech.com">support@mampitech.com</a> or <a href="tel:+447435935395">+44 7435 935395</a>.</p>' +
+        '<h2>What this notice covers</h2>' +
+        '<p>This notice explains the small set of personal data the company actually handles. It follows the UK GDPR and the Data Protection Act 2018. The sites do not run advertising or analytics cookies. The <button type="button" data-policy="terms" class="legal-text">Terms of Service</button> are the licence for Vortex9, Aura9, and Decoy9. Conduct on Decoy9 is also covered by the <button type="button" data-policy="aup" class="legal-text">Acceptable Use Policy</button>.</p>' +
+        '<h2>Data collection is kept small</h2>' +
+        '<p>The company asks only for what a request or an account needs.</p>' +
+        '<ul>' +
+        '<li>Contact and support forms: the name, email address, and message you type, so the company can reply.</li>' +
+        '<li>Sanctuary accounts on mystic9.net: the email address and sign-in details needed to keep your session and any membership or course access you buy.</li>' +
+        '<li>Vortex9 activation: the account email, and a receipt reference only if you type one, so the app can confirm whether a subscription is active.</li>' +
+        '<li>Aura9 interest: an email you choose to send. Aura9 is not yet available to install, and this page does not store an interest list.</li>' +
+        '<li>Decoy9 Pro: Stripe takes the card payment. The company does not receive or store the card number. If you paste a licence key into Decoy9, that key is checked on the device and is not sent to a company server.</li>' +
+        '</ul>' +
+        '<p>The company does not buy contact lists, and it does not sell personal data.</p>' +
+        '<h2>Zero-telemetry and zero-harvesting commitment</h2>' +
+        '<p>The architecture is absolute data minimisation: zero tracking cookies, zero third-party analytics pixels, and zero data harvesting. Vortex9, Aura9, and Decoy9 are built so the device stays with the person using it. Device state, scans, household rules, messages, and personal telemetry are not tracked, stored for a profile, or monetised.</p>' +
+        '<h2>Decoy9</h2>' +
+        '<p>Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development. There is no analytics client, no usage phone-home, and no company server that stores notes. Identity is a local key. Notes stay in an encrypted vault on the device. The company cannot read that vault.</p>' +
+        '<p>No phone number is required. The Windows setup is the published installer. Windows MSI, macOS, and Android are still in pre-deployment. Choosing Pro opens Stripe Checkout. Stripe processes the payment. The company does not store card details. Cancel at Stripe and the free core stays on the device.</p>' +
+        '<h2>Why the data is used</h2>' +
+        '<ul>' +
+        '<li>To answer a message you send, and to run an account or subscription you ask for.</li>' +
+        '<li>To keep the sites and the apps secure.</li>' +
+        '<li>To meet a legal duty, such as a tax or company-record obligation.</li>' +
+        '</ul>' +
+        '<h2>Your rights</h2>' +
+        '<p>Under the UK GDPR you can ask to access the personal data the company holds about you, correct data that is wrong, and have data erased where the law allows erasure. Write to <a href="mailto:support@mampitech.com">support@mampitech.com</a>. You can also complain to the Information Commissioner’s Office at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.</p>' +
+        '<h2>Cookies and on-device preferences</h2>' +
+        '<p>mampitech.com uses zero tracking cookies, zero third-party analytics pixels, and zero data harvesting. Closing the cookie notice stores that single preference in local storage on your device. That preference is not a tracking cookie and it is not sent to an advertising network.</p>'
+    }
+  };
+
+  var ORDER = ["terms", "aup", "privacy"];
+  var activeModal = null;
+  var modal = document.createElement("div");
+  modal.className = "legal-modal";
+  modal.id = "legal-modal";
+  modal.hidden = true;
+  modal.innerHTML =
+    '<div class="legal-modal-card" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">' +
+      '<div class="legal-modal-bar">' +
+        '<p class="legal-modal-kicker" id="legal-modal-title">Legal</p>' +
+        '<button type="button" class="legal-modal-close" style="cursor:pointer;background:#e4d0a0;color:#111111;text-decoration:none;border:none;border-radius:999px;min-height:40px;padding:0 18px;font:inherit;font-weight:700;">Close</button>' +
+      '</div>' +
+      '<div class="legal-tabs" role="tablist" aria-label="Legal documents">' +
+        '<button type="button" role="tab" id="legal-tab-terms" data-policy="terms">Terms of Service</button>' +
+        '<button type="button" role="tab" id="legal-tab-aup" data-policy="aup">Acceptable Use Policy</button>' +
+        '<button type="button" role="tab" id="legal-tab-privacy" data-policy="privacy">Privacy Policy</button>' +
+      '</div>' +
+      '<div class="legal-modal-body" id="legal-modal-panel" role="tabpanel" tabindex="0"></div>' +
+    '</div>';
+  document.body.appendChild(modal);
+
+  var panel = modal.querySelector("#legal-modal-panel");
+  var title = modal.querySelector("#legal-modal-title");
+  var tabs = Array.prototype.slice.call(modal.querySelectorAll("[role='tab']"));
+  var lastFocus = null;
+
+  function normalize(value) {
+    var key = String(value || "").replace(/^#/, "").toLowerCase();
+    if (key === "eula" || key === "tos") return "terms";
+    return DOCS[key] ? key : "";
+  }
+
+  function keyFromHref(href) {
+    if (!href || href.indexOf("mailto:") === 0 || href.indexOf("tel:") === 0) return "";
+    if (href.charAt(0) === "#") return normalize(href);
+    try {
+      var url = new URL(href, window.location.href);
+      var path = url.pathname.replace(/\/+$/, "") || "/";
+      if (path === "/privacy" || path === "/privacy.html" || path === "/privacy/index.html") return "privacy";
+      if (path === "/eula" || path === "/eula.html" || path === "/eula/index.html" || path === "/terms" || path === "/terms.html" || path === "/terms/index.html") return "terms";
+      if (path === "/aup" || path === "/aup.html" || path === "/aup/index.html") return "aup";
+    } catch (err) {
+      return "";
+    }
+    return "";
+  }
+
+  function show(key) {
+    var doc = DOCS[key];
+    title.textContent = doc.title;
+    panel.innerHTML = doc.html;
+    panel.scrollTop = 0;
+    tabs.forEach(function (tab) {
+      var on = tab.getAttribute("data-policy") === key;
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+      tab.tabIndex = on ? 0 : -1;
+      tab.style.color = on ? "#e4d0a0" : "#e8eaed";
+      tab.style.borderColor = on ? "#e4d0a0" : "rgba(228,208,160,.45)";
+    });
+    panel.setAttribute("aria-labelledby", "legal-tab-" + key);
+  }
+
+  function setActivePolicy(value, from) {
+    var next = value == null || value === "" ? null : normalize(value);
+    if (value != null && value !== "" && !next) return;
+    activePolicy = next;
+    activeModal = activePolicy;
+    window.activePolicy = activePolicy;
+    window.activeModal = activePolicy;
+    if (!activeModal) {
+      if (modal.hidden) return;
+      modal.hidden = true;
+      var gate = document.getElementById("gate");
+      if (!gate || gate.hidden) document.body.style.overflow = "";
+      if (lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
+      return;
+    }
+    if (from) lastFocus = from;
+    show(activeModal);
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    var active = modal.querySelector("#legal-tab-" + activeModal);
+    if (active) active.focus();
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener("click", function (event) {
+      event.preventDefault();
+      setActivePolicy(tab.getAttribute("data-policy"));
+    });
+    tab.addEventListener("keydown", function (event) {
+      var index = ORDER.indexOf(tab.getAttribute("data-policy"));
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+      event.preventDefault();
+      var step = event.key === "ArrowRight" ? 1 : -1;
+      var next = ORDER[(index + step + ORDER.length) % ORDER.length];
+      setActivePolicy(next, tab);
+    });
+  });
+
+  modal.querySelector(".legal-modal-close").addEventListener("click", function () {
+    setActivePolicy(null);
+  });
+  modal.addEventListener("click", function (event) {
+    if (event.target === modal) setActivePolicy(null);
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape" || modal.hidden) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setActivePolicy(null);
+  }, true);
+
+  document.addEventListener("click", function (event) {
+    var opener = event.target.closest("[data-policy], a[href]");
+    if (!opener || opener.getAttribute("role") === "tab") return;
+    var key = opener.hasAttribute("data-policy")
+      ? normalize(opener.getAttribute("data-policy"))
+      : keyFromHref(opener.getAttribute("href"));
+    if (!key) return;
+    event.preventDefault();
+    setActivePolicy(key, opener);
+  });
+
+  window.setActivePolicy = setActivePolicy;
+  window.setActiveModal = setActivePolicy;
+  window.openLegalModal = function (key) { setActivePolicy(key); };
+  window.closeLegalModal = function () { setActivePolicy(null); };
+  window.MampiLegal = { open: setActivePolicy, close: function () { setActivePolicy(null); } };
+})();
+
+</script>
+<script src="/public/cookie-notice.js" defer></script>
+</body>
+</html>
