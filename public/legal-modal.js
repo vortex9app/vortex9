@@ -10,7 +10,7 @@
     terms: {
       title: "Terms of Service",
       html:
-        '<p class="legal-updated">Mampi Technologies Ltd · 30 September 2026</p>' +
+        '<p class="legal-updated">Mampi Technologies Ltd · 10 October 2026</p>' +
         '<p>These Terms of Service are the end user licence between you and Mampi Technologies Ltd, company number 17484970, registered in England and Wales, with its registered office at 9 Lodge Hill Road, Ossett, WF5 9RU, United Kingdom. They cover Decoy9, Phreak9, Vortex9, and, when it is released, Aura9. Installing or running the software means you accept this licence and the <button type="button" data-policy="aup" class="legal-text">Acceptable Use Policy</button>.</p>' +
         '<h2>Licence</h2>' +
         '<p>The company grants you a personal, non-exclusive, non-transferable licence to install and run the software on devices you control, for the tier you are entitled to use. A paid term applies only to the account that completed checkout, and only while that term is active. The software is licensed, not sold. The company keeps all intellectual property in the program, its name, and its design.</p>' +
@@ -19,8 +19,8 @@
         '<h2>As-is and as-available software</h2>' +
         '<p>The software is provided “as is” and “as available”. To the maximum extent permitted by the law of England and Wales, and by any other law that applies and cannot be disapplied, the company excludes all warranties, conditions, and representations, whether express, implied, or statutory. That includes any warranty of merchantability, satisfactory quality, fitness for a particular purpose, title, quiet enjoyment, accuracy, and non-infringement, and any warranty that the software will be uninterrupted, timely, secure, or error-free.</p>' +
         '<p>Decoy9 does not promise that a peer will be reachable, that a message will be delivered, or that a device, operating system, or network outside the client will behave. The Windows setup is the published desktop installer. Windows MSI, macOS, and Android remain in pre-deployment until a download is offered without a “Coming Soon” label. A description of a platform is not a promise that an installer exists today. Aura9 is not yet released.</p>' +
-        '<h2>You are responsible for encrypted transmissions</h2>' +
-        '<p>Decoy9 seals messages from the sender to the recipient. The company is not a party to the conversation, does not hold the message contents, and cannot read them. You are solely responsible for every transmission you create, send, receive, store, forward, or delete, including its lawfulness, its accuracy, and the people you choose to peer with. You are solely responsible for safeguarding the device, the local identity, and any copy of the vault. The company is not responsible for a message that you sealed, for a peer you accepted, or for a consequence of end-to-end encryption, including the company’s inability to recover or inspect a conversation.</p>' +
+        '<h2>You are responsible for notes on your device</h2>' +
+        '<p>Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development. The company is not a party to a note, does not hold note contents, and cannot read them. You are solely responsible for every note or transmission you create, send, receive, store, forward, or delete, including its lawfulness, its accuracy, and any person you choose to accept. You are solely responsible for safeguarding the device, the local identity, and any copy of the vault. The company is not responsible for a note that you sealed, for a key you accepted, or for the company’s inability to recover or inspect what stays on your device.</p>' +
         '<h2>Limitation of liability</h2>' +
         '<p>To the maximum extent permitted under the law of England and Wales and under international law, the company and its directors, officers, and contractors are not liable for any loss or damage arising out of the software or these terms. That exclusion covers direct, indirect, incidental, special, consequential, exemplary, and punitive loss, loss of profit, revenue, goodwill, data, messages, or privacy, business interruption, the cost of substitute software, and any loss caused by a third party, a network, a device, or an encrypted transmission, whether the claim is in contract, tort (including negligence), breach of statutory duty, or otherwise, and whether or not the company was advised that the loss was possible.</p>' +
         '<p>Nothing in these terms limits or excludes liability for death or personal injury caused by negligence, for fraud or fraudulent misrepresentation, or for any other liability that the law of England and Wales, or a mandatory rule of another country that applies to you, does not allow a contract to exclude or limit. Where a liability cannot be excluded, it is limited to the smallest amount the law allows.</p>' +
@@ -35,12 +35,12 @@
     aup: {
       title: "Acceptable Use Policy",
       html:
-        '<p class="legal-updated">Mampi Technologies Ltd · 30 September 2026</p>' +
+        '<p class="legal-updated">Mampi Technologies Ltd · 10 October 2026</p>' +
         '<p>This Acceptable Use Policy is part of the <button type="button" data-policy="terms" class="legal-text">Terms of Service</button> for Decoy9 and Phreak9. It binds every person who downloads, installs, or runs either client. Both are published by Mampi Technologies Ltd, company number 17484970, registered in England and Wales, at 9 Lodge Hill Road, Ossett, WF5 9RU, United Kingdom.</p>' +
         '<h2>Phreak9</h2>' +
         '<p>You must be 18 or older. Phreak9 is a local defence tool for a computer you control. Community use covers local vulnerability scanning and manual threat alerts. Pro covers automated firewall defence, local patch actions, and heuristic threat feeds on that same device. You will use Phreak9 only on devices, networks, and services you are allowed to defend. You will not aim it at a system you do not control.</p>' +
         '<h2>Who may use Decoy9</h2>' +
-        '<p>You must be 18 or older. The download gate asks you to confirm that age, and installing the client repeats that confirmation. You will not create a peer relationship with a child, and you will not use Decoy9 to contact a minor.</p>' +
+        '<p>You must be 18 or older. The website asks you to confirm that age before the Windows download. The app itself has no age screen. You will not create a peer relationship with a child, and you will not use Decoy9 to contact a minor.</p>' +
         '<h2>Zero tolerance</h2>' +
         '<p>The following are forbidden. A single act is enough. There is no warning tier for them.</p>' +
         '<ul>' +
@@ -50,24 +50,24 @@
         '<li>Malware, credential theft, or any use of the channel to break into a system you do not control.</li>' +
         '</ul>' +
         '<p>If you see conduct of that kind, stop the peer on your device and write to <a href="mailto:support@mampitech.com">support@mampitech.com</a>. Where the law requires a report to the police or another authority, make that report. The company will co-operate with a lawful request that it is actually able to answer.</p>' +
-        '<h2>Client-side isolation and connection gating</h2>' +
-        '<p>Decoy9 does not place a company server in the message path, and it does not scan message contents. Safety controls run on the device.</p>' +
+        '<h2>On-device controls</h2>' +
+        '<p>Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development. This build has no message path and does not scan note contents. Safety controls run on the device.</p>' +
         '<ul>' +
         '<li>An unknown public key waits in Pending Requests. Until you accept it, inbound text, links, and media from that key are not shown.</li>' +
         '<li>Decline blocks that key on this device.</li>' +
         '<li>After you accept a peer, remote addresses in their messages stay replaced with a held-link mark until you choose to inspect them. The client does not open the address for you.</li>' +
         '<li>Those decisions stay on the device. They are not uploaded into a moderation queue.</li>' +
         '</ul>' +
-        '<p>Because the channel is end-to-end encrypted, the company cannot read a conversation in order to police it. You are the person who accepts a peer, and you are the person who must refuse one.</p>' +
-        '<h2>Your transmissions</h2>' +
-        '<p>You alone choose what you seal and who you peer with. You will not use Decoy9 to infringe another person’s rights, to impersonate Mampi Technologies Ltd, or to interfere with the client. The Terms of Service state that responsibility for an encrypted transmission sits with you.</p>' +
+        '<p>The company cannot read the vault in order to police it, because the notes stay encrypted on the device and are not sent to the company. You are the person who accepts a key, and you are the person who must refuse one.</p>' +
+        '<h2>What you store</h2>' +
+        '<p>You alone choose what you seal on this device. You will not use Decoy9 to infringe another person’s rights, to impersonate Mampi Technologies Ltd, or to interfere with the client. The Terms of Service state that you are responsible for every note you store on the device.</p>' +
         '<h2>If this policy is broken</h2>' +
-        '<p>The company may refuse support, end the licence, and, where a payment record exists, ask Stripe to close the related subscription. The company may also keep the limited account data the <button type="button" data-policy="privacy" class="legal-text">Privacy Policy</button> describes where the law requires it. Ending the licence does not require the company to have read your messages.</p>'
+        '<p>The company may refuse support, end the licence, and, where a payment record exists, ask Stripe to close the related subscription. The company may also keep the limited account data the <button type="button" data-policy="privacy" class="legal-text">Privacy Policy</button> describes where the law requires it. Ending the licence does not require the company to have read your notes.</p>'
     },
     privacy: {
       title: "Privacy Policy",
       html:
-        '<p class="legal-updated">Mampi Technologies Ltd · 30 September 2026</p>' +
+        '<p class="legal-updated">Mampi Technologies Ltd · 10 October 2026</p>' +
         '<p>Mampi Technologies Ltd (company number 17484970), registered in England and Wales, is the data controller for mampitech.com, mystic9.net, Vortex9, Aura9, Decoy9, and Phreak9. The registered office is 9 Lodge Hill Road, Ossett, WF5 9RU, United Kingdom. Privacy requests go to <a href="mailto:support@mampitech.com">support@mampitech.com</a> or <a href="tel:+447435935395">+44 7435 935395</a>.</p>' +
         '<h2>What this notice covers</h2>' +
         '<p>This notice explains the small set of personal data the company actually handles. It follows the UK GDPR and the Data Protection Act 2018. The sites do not run advertising or analytics cookies. The <button type="button" data-policy="terms" class="legal-text">Terms of Service</button> are the licence for Vortex9, Aura9, Decoy9, and Phreak9. Conduct on Decoy9 is also covered by the <button type="button" data-policy="aup" class="legal-text">Acceptable Use Policy</button>.</p>' +
@@ -85,7 +85,7 @@
         '<h2>Zero-telemetry and zero-harvesting commitment</h2>' +
         '<p>The architecture is absolute data minimisation: zero tracking cookies, zero third-party analytics pixels, and zero data harvesting. Vortex9, Aura9, Decoy9, and Phreak9 are built so the device stays with the person using it. Device state, scans, household rules, messages, and personal telemetry are not tracked, stored for a profile, or monetised.</p>' +
         '<h2>Decoy9</h2>' +
-        '<p>Decoy9 sends no server-side telemetry. There is no analytics client, no usage phone-home, and no company server that stores the contents of a conversation. Identity is a local key. Message records stay in an encrypted vault on the device. The company cannot read that vault.</p>' +
+        '<p>Decoy9 is an encrypted vault for your private notes. Everything stays on your device, with no accounts, no telemetry and no cloud. Peer-to-peer messaging is in development. There is no analytics client, no usage phone-home, and no company server that stores notes. Identity is a local key. Notes stay in an encrypted vault on the device. The company cannot read that vault.</p>' +
         '<p>No phone number is required. The Windows setup is the published installer. Windows MSI, macOS, and Android are still in pre-deployment. Choosing Pro opens Stripe Checkout. Stripe processes the payment. The company does not store card details. Cancel at Stripe and the free core stays on the device.</p>' +
         '<h2>Phreak9</h2>' +
         '<p>Phreak9 keeps scans, packet decisions, and hardening advice on the device. It does not send a telemetry feed of your traffic to a company server. The Windows control on the product page is a GitHub placeholder until a release artifact is attached. macOS, Linux, and Android are in pre-deployment. Choosing Pro opens Stripe Checkout at £4.44 a month or £44.44 a year. Stripe processes the payment. The company does not store card details.</p>' +
